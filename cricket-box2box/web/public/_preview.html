@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><style>
+body { background:#0b2818; font-family:sans-serif; display:flex; flex-wrap:wrap; gap:10px; padding:12px; }
+.cell { width:110px; height:100px; border-radius:6px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; font-weight:700; font-size:12px; }
+.cell img.logo { width:36px; height:36px; object-fit:contain; margin-bottom:4px; }
+.cell img.flag { width:32px; height:22px; object-fit:cover; margin-bottom:4px; border-radius:2px; }
+</style></head><body>
+<script>
+const franchises = {"Mumbai Indians":{"logo":"/logos/mumbai-indians.svg","bg":"#045093","fg":"#f3ecd8"},"Chennai Super Kings":{"logo":"/logos/chennai-super-kings.svg","bg":"#F9CD05","fg":"#0b2818"},"Royal Challengers Bengaluru":{"logo":"/logos/royal-challengers-bengaluru.svg","bg":"#EC1C24","fg":"#f3ecd8"},"Kolkata Knight Riders":{"logo":"/logos/kolkata-knight-riders.svg","bg":"#141010","fg":"#F2C028"},"Delhi Capitals":{"logo":"/logos/delhi-capitals.svg","bg":"#17479E","fg":"#f3ecd8"},"Punjab Kings":{"logo":"/logos/punjab-kings.svg","bg":"#ED1B24","fg":"#f3ecd8"},"Rajasthan Royals":{"logo":"/logos/rajasthan-royals.svg","bg":"#1B1F4B","fg":"#f3ecd8"},"Sunrisers Hyderabad":{"logo":"/logos/sunrisers-hyderabad.svg","bg":"#FF822A","fg":"#0b2818"},"Gujarat Titans":{"logo":"/logos/gujarat-titans.svg","bg":"#D4AF37","fg":"#1B2133"},"Lucknow Super Giants":{"logo":"/logos/lucknow-super-giants.svg","bg":"#12A9BF","fg":"#f3ecd8"},"Deccan Chargers":{"logo":"/logos/deccan-chargers.png","bg":"#4B2E83","fg":"#f3ecd8"},"Pune Warriors":{"logo":"/logos/pune-warriors.png","bg":"#4A5A6B","fg":"#f3ecd8"},"Gujarat Lions":{"logo":"/logos/gujarat-lions.png","bg":"#E2662A","fg":"#f3ecd8"},"Rising Pune Supergiant":{"logo":"/logos/rising-pune-supergiant.png","bg":"#8B1E3F","fg":"#f3ecd8"},"Kochi Tuskers Kerala":{"logo":"/logos/kochi-tuskers-kerala.svg","bg":"#F76A1C","fg":"#0b2818"}};
+const nations = {"India":{"flag":"/flags/india.svg","bg":"#FF9933","fg":"#0b2818"},"Australia":{"flag":"/flags/australia.svg","bg":"#00843D","fg":"#f3ecd8"},"England":{"flag":"/flags/england.svg","bg":"#1B3A6B","fg":"#f3ecd8"},"South Africa":{"flag":"/flags/south-africa.svg","bg":"#007A4D","fg":"#f3ecd8"},"West Indies":{"flag":"/flags/west-indies.svg","bg":"#7B0000","fg":"#f3ecd8"},"New Zealand":{"flag":"/flags/new-zealand.svg","bg":"#000000","fg":"#f3ecd8"},"Sri Lanka":{"flag":"/flags/sri-lanka.svg","bg":"#0B4EA2","fg":"#f3ecd8"},"Afghanistan":{"flag":"/flags/afghanistan.svg","bg":"#0D6A3B","fg":"#f3ecd8"},"Bangladesh":{"flag":"/flags/bangladesh.svg","bg":"#006A4E","fg":"#f3ecd8"},"Zimbabwe":{"flag":"/flags/zimbabwe.svg","bg":"#5B7F33","fg":"#f3ecd8"}};
+const root = document.body;
+for (const [name, s] of Object.entries(nations)) {
+  root.innerHTML += `<div class="cell" style="background:${s.bg};color:${s.fg}"><img class="flag" src="/cross-bat${s.flag}">${name}</div>`;
+}
+for (const [name, s] of Object.entries(franchises)) {
+  root.innerHTML += `<div class="cell" style="background:${s.bg};color:${s.fg}"><img class="logo" src="/cross-bat${s.logo}">${name}</div>`;
+}
+</script>
+</body></html>

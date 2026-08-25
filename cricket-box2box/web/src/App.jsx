@@ -1,13 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Board from "./components/Board";
 import SearchOverlay from "./components/SearchOverlay";
 import HowToPlay from "./components/HowToPlay";
 import ConfirmDialog from "./components/ConfirmDialog";
 import WinModal from "./components/WinModal";
 import Confetti from "./components/Confetti";
+import DifficultyDialog from "./components/DifficultyDialog";
+import BrandMark from "./components/BrandMark";
 import { fetchGrid, submitGuess } from "./api";
 import { playWinFanfare } from "./sound";
+import { getDifficulty } from "./game/difficulty";
 
 const EMPTY_CELLS = [
   [null, null, null],
@@ -16,6 +19,11 @@ const EMPTY_CELLS = [
 ];
 
 export default function App() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [difficulty, setDifficulty] = useState(
+    () => getDifficulty(searchParams.get("difficulty")).key
+  );
+  const [showDifficultyDialog, setShowDifficultyDialog] = useState(false);
   const [grid, setGrid] = useState(null); // { rows, cols }
   const [cellState, setCellState] = useState(EMPTY_CELLS);
   const [usedPlayers, setUsedPlayers] = useState([]);
@@ -35,7 +43,7 @@ export default function App() {
     celebratedRef.current = false;
     setShowWinModal(false);
     setCelebrating(false);
-    fetchGrid()
+    fetchGrid(difficulty)
       .then((g) => {
         setGrid(g);
         setCellState(EMPTY_CELLS.map((row) => row.slice()));
@@ -44,7 +52,13 @@ export default function App() {
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [difficulty]);
+
+  function selectDifficulty(key) {
+    setDifficulty(key);
+    setSearchParams({ difficulty: key }, { replace: true });
+    setShowDifficultyDialog(false);
+  }
 
   useEffect(() => {
     loadGrid();
@@ -101,9 +115,7 @@ export default function App() {
     <div className="pitch">
       <header className="masthead">
         <div className="brand">
-          <span className="brand-mark" aria-hidden="true">
-            🏏
-          </span>
+          <BrandMark />
           <div className="brand-text">
             <Link className="brand-home" to="/">
               ← Cross Bat
@@ -121,12 +133,15 @@ export default function App() {
             <span>9</span>
           </div>
           <span className="tally-label">ON THE BOARD</span>
+          <button className="difficulty-trigger" onClick={() => setShowDifficultyDialog(true)}>
+            {getDifficulty(difficulty).label}
+          </button>
         </div>
       </header>
 
       <main className="board-wrap">
         {loading && <p className="loading">Setting the field…</p>}
-        {error && <p className="error-banner">Couldn't reach the server: {error}</p>}
+        {error && <p className="error-banner">Couldn't build a grid: {error}</p>}
         {grid && !loading && (
           <Board
             rows={grid.rows}
@@ -183,6 +198,15 @@ export default function App() {
 
       {showWinModal && (
         <WinModal onPlayAgain={loadGrid} onClose={() => setShowWinModal(false)} />
+      )}
+
+      {showDifficultyDialog && (
+        <DifficultyDialog
+          current={difficulty}
+          warning={correctCount > 0 ? "Changing difficulty starts a fresh grid." : null}
+          onSelect={selectDifficulty}
+          onCancel={() => setShowDifficultyDialog(false)}
+        />
       )}
 
       {celebrating && <Confetti />}

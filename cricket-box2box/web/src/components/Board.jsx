@@ -1,10 +1,13 @@
 import HeaderCell from "./HeaderCell";
 import GridCell from "./GridCell";
+import BrandMark from "./BrandMark";
 
 export default function Board({ rows, cols, cellState, counts, onOpenCell, shakeMap }) {
   return (
     <div className="board">
-      <div className="corner">🏏 XB</div>
+      <div className="corner">
+        <BrandMark className="corner-icon" /> XB
+      </div>
       {cols.map((c) => (
         <HeaderCell key={c.id} category={c} />
       ))}
