@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-ssr/
+*.log
+*.local
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Raw cricsheet source data (109MB+, regenerable via build_data.py / build_full_data.py)
+cricket-box2box/cricsheet/
+
+# Reference-only Box2Box football schema files (unrelated to the cricket app)
+/gamedata.json
+/player.json
