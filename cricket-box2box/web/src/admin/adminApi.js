@@ -1,4 +1,4 @@
-const BASE = `${import.meta.env.VITE_API_BASE || ""}/api/admin`;
+const BASE = `${import.meta.env.VITE_API_BASE || "https://cross-bat.onrender.com"}/api/admin`;
 
 async function json(res) {
   if (!res.ok) {
