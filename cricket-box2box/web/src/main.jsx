@@ -10,7 +10,7 @@ import AdminApp from './admin/AdminApp.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/cross-bat">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/ipl-grid" element={<App />} />
