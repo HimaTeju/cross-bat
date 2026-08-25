@@ -7,6 +7,7 @@ import ConfirmDialog from "./components/ConfirmDialog";
 import WinModal from "./components/WinModal";
 import Confetti from "./components/Confetti";
 import DifficultyDialog from "./components/DifficultyDialog";
+import BrandMark from "./components/BrandMark";
 import { fetchGrid, submitGuess } from "./api";
 import { playWinFanfare } from "./sound";
 import { getDifficulty } from "./game/difficulty";
@@ -114,9 +115,7 @@ export default function App() {
     <div className="pitch">
       <header className="masthead">
         <div className="brand">
-          <span className="brand-mark" aria-hidden="true">
-            🏏
-          </span>
+          <BrandMark />
           <div className="brand-text">
             <Link className="brand-home" to="/">
               ← Cross Bat

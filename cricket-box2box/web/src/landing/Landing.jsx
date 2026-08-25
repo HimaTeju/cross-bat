@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DifficultyDialog from "../components/DifficultyDialog";
+import BrandMark from "../components/BrandMark";
 
 const GAMES = [
   {
     to: "/ipl-grid",
-    icon: "🏏",
     title: "IPL Grid",
     blurb: "Fill a 3×3 grid connecting national teams and IPL franchises with a real player who played for both.",
     stats: "844 players · 15 franchises · 2008–2026",
@@ -29,9 +29,7 @@ export default function Landing() {
     <div className="pitch">
       <header className="masthead landing-masthead">
         <div className="brand">
-          <span className="brand-mark" aria-hidden="true">
-            🏏
-          </span>
+          <BrandMark />
           <div className="brand-text">
             <h1>
               CROSS <span className="accent">BAT</span>
@@ -49,9 +47,7 @@ export default function Landing() {
             className="game-card"
             onClick={() => setPendingGame(g.to)}
           >
-            <span className="game-card-icon" aria-hidden="true">
-              {g.icon}
-            </span>
+            <BrandMark className="game-card-icon brand-mark" />
             <h2>{g.title}</h2>
             <p className="game-card-blurb">{g.blurb}</p>
             <p className="game-card-stats">{g.stats}</p>
