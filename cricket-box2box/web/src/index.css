@@ -173,7 +173,21 @@ body {
   text-transform: uppercase;
 }
 
-.head .head-flag { font-size: 1.3rem; margin-bottom: 0.15rem; }
+.head .head-flag {
+  width: 1.6rem;
+  height: 1.1rem;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.2rem;
+}
+.head .head-logo {
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+  margin-bottom: 0.15rem;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+}
 .head .head-sub { font-size: 0.6rem; opacity: 0.75; letter-spacing: 0.12em; font-family: 'Archivo Narrow', sans-serif; }
 
 .cell {
@@ -432,7 +446,8 @@ body {
 .demo-board-wrap .corner { font-size: 0.8rem; }
 .demo-board-wrap .corner-icon { width: 0.9rem; height: 0.9rem; }
 .demo-board-wrap .head { font-size: 0.62rem; padding: 0.2rem 0.15rem; }
-.demo-board-wrap .head .head-flag { font-size: 0.9rem; margin-bottom: 0.05rem; }
+.demo-board-wrap .head .head-flag { width: 1.1rem; height: 0.75rem; margin-bottom: 0.05rem; }
+.demo-board-wrap .head .head-logo { width: 1.1rem; height: 1.1rem; margin-bottom: 0.05rem; }
 .demo-board-wrap .head .head-sub { font-size: 0.44rem; }
 .demo-board-wrap .cell { cursor: default; }
 .demo-board-wrap .cell:hover { transform: none; box-shadow: 0 2px 0 var(--shadow); }
