@@ -1,4 +1,4 @@
-import { categories, adjacency } from "./data";
+import { categories, adjacency, adjacencyForRange } from "./data";
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -16,17 +16,17 @@ function intersect(a, b) {
   return out;
 }
 
-export function pickGrid() {
-  const ids = categories.map((c) => c.id).filter((id) => adjacency.has(id));
+function pickGridFrom(adj) {
+  const ids = categories.map((c) => c.id).filter((id) => adj.has(id));
 
   for (let attempt = 0; attempt < 400; attempt++) {
     const rowCandidates = shuffle(ids.slice()).slice(0, 8);
     for (const r0 of rowCandidates) {
       const rowSet = [r0];
-      let common = new Set(adjacency.get(r0) || []);
+      let common = new Set(adj.get(r0) || []);
       for (const r of shuffle(ids.slice())) {
-        if (rowSet.includes(r) || !adjacency.has(r)) continue;
-        const inter = intersect(common, adjacency.get(r));
+        if (rowSet.includes(r) || !adj.has(r)) continue;
+        const inter = intersect(common, adj.get(r));
         if (inter.size >= 3) {
           rowSet.push(r);
           common = inter;
@@ -40,5 +40,16 @@ export function pickGrid() {
       }
     }
   }
+  return null;
+}
+
+export function pickGrid(difficulty) {
+  if (difficulty) {
+    const filtered = adjacencyForRange(difficulty.min, difficulty.max);
+    const result = pickGridFrom(filtered);
+    if (result) return result;
+  }
+  const result = pickGridFrom(adjacency);
+  if (result) return result;
   throw new Error("could not generate a valid grid from current data");
 }

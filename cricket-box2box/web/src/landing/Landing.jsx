@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import DifficultyDialog from "../components/DifficultyDialog";
 
 const GAMES = [
   {
@@ -17,6 +18,9 @@ const COMING_SOON = [
 ];
 
 export default function Landing() {
+  const navigate = useNavigate();
+  const [pendingGame, setPendingGame] = useState(null);
+
   useEffect(() => {
     document.title = "Cross Bat — Cricket Games";
   }, []);
@@ -39,7 +43,12 @@ export default function Landing() {
 
       <main className="game-grid">
         {GAMES.map((g) => (
-          <Link key={g.to} to={g.to} className="game-card">
+          <button
+            key={g.to}
+            type="button"
+            className="game-card"
+            onClick={() => setPendingGame(g.to)}
+          >
             <span className="game-card-icon" aria-hidden="true">
               {g.icon}
             </span>
@@ -47,7 +56,7 @@ export default function Landing() {
             <p className="game-card-blurb">{g.blurb}</p>
             <p className="game-card-stats">{g.stats}</p>
             <span className="game-card-cta">Play →</span>
-          </Link>
+          </button>
         ))}
         {COMING_SOON.map((g, i) => (
           <div key={i} className="game-card game-card-locked">
@@ -61,6 +70,13 @@ export default function Landing() {
       </main>
 
       <p className="footnote">A growing collection of cricket trivia and puzzle games.</p>
+
+      {pendingGame && (
+        <DifficultyDialog
+          onSelect={(key) => navigate(`${pendingGame}?difficulty=${key}`)}
+          onCancel={() => setPendingGame(null)}
+        />
+      )}
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import { categoryById, searchPlayers as searchPlayersLocal, answerCount, checkGuess } from "./game/data";
 import { pickGrid } from "./game/gridgen";
+import { getDifficulty } from "./game/difficulty";
 
-export async function fetchGrid() {
-  const { rows, cols } = pickGrid();
+export async function fetchGrid(difficultyKey) {
+  const { rows, cols } = pickGrid(getDifficulty(difficultyKey));
   return {
     rows: rows.map((id) => categoryById.get(id)),
     cols: cols.map((id) => categoryById.get(id)),

@@ -42,6 +42,21 @@ export function answerCount(catA, catB) {
   return count;
 }
 
+// Adjacency restricted to pairs whose answerCount falls within [min, max].
+export function adjacencyForRange(min, max) {
+  const filtered = new Map();
+  for (const [a, set] of adjacency) {
+    for (const b of set) {
+      const count = answerCount(a, b);
+      if (count >= min && count <= max) {
+        if (!filtered.has(a)) filtered.set(a, new Set());
+        filtered.get(a).add(b);
+      }
+    }
+  }
+  return filtered;
+}
+
 export function checkGuess(rowId, colId, rawName) {
   const canonical = nameIndex.get(rawName.trim().toLowerCase());
   if (!canonical) return { correct: false, reason: "unknown-player" };
