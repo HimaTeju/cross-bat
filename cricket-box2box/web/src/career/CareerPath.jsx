@@ -1,6 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import BrandMark from "../components/BrandMark";
+import Confetti from "../components/Confetti";
+import { playWinFanfare } from "../sound";
 import { FRANCHISE_STYLE } from "../teamStyles";
 import { searchCareerPlayers, dailyPuzzle, randomPuzzle } from "./data";
 
@@ -19,23 +21,42 @@ function newGameState(player) {
   };
 }
 
-function BlockCard({ block, revealed }) {
+function initials(name) {
+  return name
+    .split(" ")
+    .map((w) => w[0])
+    .join("");
+}
+
+function CrestChip({ block, revealed }) {
   const style = revealed ? FRANCHISE_STYLE[block.team] : null;
   return (
-    <li className={`career-block${revealed ? " revealed" : " hidden"}`} style={style ? { background: style.bg, color: style.fg } : undefined}>
-      {revealed ? (
-        <>
-          {style?.logo && <img src={style.logo} alt="" className="career-block-logo" />}
-          <span className="career-block-team">{block.team}</span>
-          <span className="career-block-seasons">
-            {block.seasons[0]}
-            {block.seasons.length > 1 ? `–${block.seasons[block.seasons.length - 1]}` : ""}
-          </span>
-        </>
-      ) : (
-        <span className="career-block-mystery">?</span>
-      )}
-    </li>
+    <div className={`crest-chip${revealed ? " revealed" : " hidden"}`} title={revealed ? block.team : undefined}>
+      <div className="crest-badge" style={revealed && style ? { borderColor: style.bg } : undefined}>
+        {revealed ? (
+          style?.logo ? (
+            <img src={style.logo} alt={block.team} className="crest-logo" />
+          ) : (
+            <span className="crest-initials">{initials(block.team)}</span>
+          )
+        ) : (
+          <span className="crest-mystery">?</span>
+        )}
+      </div>
+      <div className="crest-caption">
+        {revealed ? (
+          <>
+            <span className="crest-team">{initials(block.team)}</span>
+            <span className="crest-seasons">
+              {block.seasons[0]}
+              {block.seasons.length > 1 ? `–${block.seasons[block.seasons.length - 1]}` : ""}
+            </span>
+          </>
+        ) : (
+          <span className="crest-team dim">?</span>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -44,11 +65,20 @@ export default function CareerPath() {
   const [game, setGame] = useState(() => newGameState(dailyPuzzle().player));
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [celebrating, setCelebrating] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
     document.title = "Career Path — Cross Bat";
   }, []);
+
+  useEffect(() => {
+    if (game.status !== "won") return;
+    setCelebrating(true);
+    playWinFanfare();
+    const t = setTimeout(() => setCelebrating(false), 3200);
+    return () => clearTimeout(t);
+  }, [game.status]);
 
   useEffect(() => {
     const q = query.trim();
@@ -92,27 +122,6 @@ export default function CareerPath() {
     });
   }
 
-  const shareText = useMemo(() => {
-    if (game.status === "playing") return null;
-    const score = game.status === "won" ? game.guesses.length : "X";
-    const squares = Array.from({ length: maxAttempts }, (_, i) => {
-      if (i < game.guesses.length - 1) return "🟨";
-      if (i === game.guesses.length - 1) return game.status === "won" ? "🟩" : "🟥";
-      return "⬜";
-    }).join("");
-    const label = mode === "daily" ? `Daily ${dailyPuzzle().dateKey}` : "Practice";
-    return `🏏 Cross Bat Career Path — ${label}\n${score}/${maxAttempts}\n${squares}`;
-  }, [game, mode, maxAttempts]);
-
-  const [copied, setCopied] = useState(false);
-  function copyShare() {
-    if (!shareText) return;
-    navigator.clipboard?.writeText(shareText).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    });
-  }
-
   return (
     <div className="pitch career-page">
       <header className="masthead">
@@ -138,11 +147,24 @@ export default function CareerPath() {
         </button>
       </div>
 
-      <ul className="career-blocks">
+      <div className="career-chain">
         {game.player.blocks.map((b, i) => (
-          <BlockCard key={b.team} block={b} revealed={i < game.revealCount} />
+          <Fragment key={i}>
+            <CrestChip block={b} revealed={i < game.revealCount} />
+            <span className="career-arrow" aria-hidden="true">
+              →
+            </span>
+          </Fragment>
         ))}
-      </ul>
+        <div className="crest-chip mystery-player">
+          <div className="crest-badge mystery-badge">
+            <span className="crest-mystery">?</span>
+          </div>
+          <div className="crest-caption">
+            <span className="crest-team">{game.status === "playing" ? "???" : game.player.name}</span>
+          </div>
+        </div>
+      </div>
 
       {game.guesses.length > 0 && (
         <ul className="career-guesses">
@@ -179,17 +201,25 @@ export default function CareerPath() {
           )}
         </div>
       ) : (
-        <div className="career-result">
-          <h2>{game.status === "won" ? "Got it!" : "Out of guesses"}</h2>
+        <div className={`career-result ${game.status}`}>
+          <span className="career-result-icon" aria-hidden="true">
+            {game.status === "won" ? "🏆" : "🏏"}
+          </span>
+          <h2>{game.status === "won" ? "Six! Got it." : "Stumped!"}</h2>
           <p>
-            The answer was <strong>{game.player.name}</strong>.
+            {game.status === "won" ? (
+              <>
+                You spotted <strong>{game.player.name}</strong> in {game.guesses.length}{" "}
+                {game.guesses.length === 1 ? "guess" : "guesses"}.
+              </>
+            ) : (
+              <>
+                The answer was <strong>{game.player.name}</strong>.
+              </>
+            )}
           </p>
-          <pre className="career-share">{shareText}</pre>
           <div className="career-result-actions">
-            <button className="btn-primary" onClick={copyShare}>
-              {copied ? "Copied!" : "Copy result"}
-            </button>
-            <button className="btn-ghost" onClick={startPractice}>
+            <button className="btn-primary" onClick={startPractice}>
               Play another
             </button>
           </div>
@@ -200,6 +230,8 @@ export default function CareerPath() {
         Team history built from every IPL match ever played (2008–2026). Only players with enough IPL
         history to be a fair puzzle are included.
       </p>
+
+      {celebrating && <Confetti />}
     </div>
   );
 }

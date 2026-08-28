@@ -11,53 +11,113 @@
   margin: 1.25rem 0;
 }
 
-.career-blocks {
-  list-style: none;
+.career-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem 0.25rem;
   margin: 0 0 1.25rem;
-  padding: 0;
+  padding: 1.5rem 1rem 1.25rem;
+  background: var(--pitch-deep);
+  border: 1px solid var(--pitch-line);
+  border-radius: 12px;
+}
+
+.crest-chip {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 0.4rem;
+  width: 74px;
 }
 
-.career-block {
+.crest-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  border-radius: 8px;
-  font-family: 'Archivo Narrow', sans-serif;
-}
-
-.career-block.hidden {
-  background: var(--pitch-deep);
-  border: 2px dashed var(--pitch-line);
-  color: var(--parchment-dim);
   justify-content: center;
+  background: var(--parchment);
+  border: 3px solid var(--pitch-line);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
 }
 
-.career-block-mystery {
-  font-family: 'Teko', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.1em;
-  opacity: 0.6;
+.crest-chip.hidden .crest-badge {
+  background: transparent;
+  border: 3px dashed var(--pitch-line);
+  box-shadow: none;
 }
 
-.career-block-logo {
-  width: 2rem;
-  height: 2rem;
+.crest-logo {
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
-.career-block-team {
-  font-weight: 700;
-  flex: 1;
+.crest-initials {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.3rem;
+  color: #1b2133;
+  letter-spacing: 0.02em;
 }
 
-.career-block-seasons {
-  font-size: 0.85rem;
+.crest-mystery {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.7rem;
+  color: var(--parchment-dim);
+  opacity: 0.6;
+}
+
+.crest-caption {
+  text-align: center;
+  line-height: 1.15;
+  min-height: 2rem;
+}
+
+.crest-team {
+  display: block;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--parchment);
+}
+
+.crest-team.dim {
+  opacity: 0.5;
+}
+
+.crest-seasons {
+  display: block;
+  font-size: 0.62rem;
+  color: var(--parchment-dim);
+}
+
+.career-arrow {
+  align-self: center;
+  margin-top: -1.6rem;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.4rem;
+  color: var(--gold);
   opacity: 0.85;
-  white-space: nowrap;
+}
+
+.crest-chip.mystery-player .crest-badge {
+  background: var(--pitch);
+  border: 3px solid var(--gold);
+}
+
+.crest-chip.mystery-player .crest-mystery {
+  color: var(--gold-bright);
+  opacity: 1;
+}
+
+.crest-chip.mystery-player .crest-team {
+  color: var(--gold-bright);
+  max-width: 90px;
+  white-space: normal;
 }
 
 .career-guesses {
@@ -123,6 +183,27 @@
   padding: 1.5rem;
 }
 
+.career-result.won {
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(201, 154, 59, 0.25);
+}
+
+.career-result.lost {
+  border-color: rgba(169, 50, 38, 0.5);
+}
+
+.career-result-icon {
+  display: block;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.career-result.lost .career-result-icon {
+  opacity: 0.7;
+  filter: grayscale(1);
+}
+
 .career-result h2 {
   font-family: 'Teko', sans-serif;
   font-size: 1.8rem;
@@ -130,16 +211,8 @@
   margin: 0 0 0.5rem;
 }
 
-.career-share {
-  display: inline-block;
-  text-align: left;
-  background: var(--pitch);
-  border: 1px solid var(--pitch-line);
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  margin: 1rem 0;
-  font-size: 0.85rem;
-  white-space: pre-wrap;
+.career-result.lost h2 {
+  color: #ff9a8a;
 }
 
 .career-result-actions {
