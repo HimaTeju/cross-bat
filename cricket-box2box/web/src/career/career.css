@@ -1,0 +1,149 @@
+.career-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.career-modes {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin: 1.25rem 0;
+}
+
+.career-blocks {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.career-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+.career-block.hidden {
+  background: var(--pitch-deep);
+  border: 2px dashed var(--pitch-line);
+  color: var(--parchment-dim);
+  justify-content: center;
+}
+
+.career-block-mystery {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+.career-block-logo {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.career-block-team {
+  font-weight: 700;
+  flex: 1;
+}
+
+.career-block-seasons {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.career-guesses {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.career-guesses li {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.career-guesses li.wrong {
+  background: rgba(169, 50, 38, 0.25);
+  color: #ff9a8a;
+  text-decoration: line-through;
+}
+
+.career-guesses li.correct {
+  background: rgba(76, 175, 80, 0.25);
+  color: #8fe08f;
+}
+
+.career-guess-box {
+  position: relative;
+}
+
+.career-guess-box input {
+  width: 100%;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--pitch-line);
+  border-radius: 6px;
+  background: var(--pitch-deep);
+  color: var(--parchment);
+}
+.career-guess-box input:focus { outline: none; border-color: var(--gold); }
+
+.career-attempts {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  color: var(--parchment-dim);
+  text-align: center;
+}
+
+.career-guess-box .suggestions {
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+
+.career-result {
+  text-align: center;
+  background: var(--pitch-deep);
+  border: 1px solid var(--pitch-line);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.career-result h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.8rem;
+  color: var(--gold-bright);
+  margin: 0 0 0.5rem;
+}
+
+.career-share {
+  display: inline-block;
+  text-align: left;
+  background: var(--pitch);
+  border: 1px solid var(--pitch-line);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+.career-result-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
