@@ -226,6 +226,30 @@
         "description": "Kochi Tuskers Kerala",
         "displayName": "KTK",
         "active": false
+      },
+      {
+        "id": 500,
+        "name": "Orange Cap",
+        "reputation": 60,
+        "type": 3,
+        "description": "Won the Orange Cap (leading run-scorer of an IPL season)",
+        "displayName": "Orange Cap"
+      },
+      {
+        "id": 501,
+        "name": "Purple Cap",
+        "reputation": 60,
+        "type": 4,
+        "description": "Won the Purple Cap (leading wicket-taker of an IPL season)",
+        "displayName": "Purple Cap"
+      },
+      {
+        "id": 502,
+        "name": "MVP",
+        "reputation": 65,
+        "type": 5,
+        "description": "Won the IPL Most Valuable Player award (Player of the Tournament, 2008-2012)",
+        "displayName": "MVP"
       }
     ],
     "playableCombos": {

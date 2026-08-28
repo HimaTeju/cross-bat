@@ -7,6 +7,7 @@ import './landing/landing.css'
 import Landing from './landing/Landing.jsx'
 import App from './App.jsx'
 import AdminApp from './admin/AdminApp.jsx'
+import AwardsReview from './admin/AwardsReview.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Landing />} />
         <Route path="/ipl-grid" element={<App />} />
         <Route path="/ipl-grid/admin" element={<AdminApp />} />
+        <Route path="/ipl-grid/admin/awards" element={<AwardsReview />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

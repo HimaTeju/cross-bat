@@ -273,3 +273,66 @@
 @media (max-width: 640px) {
   .admin-header { flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- Awards review ---------- */
+.awards-evidence {
+  font-size: 0.78rem;
+  color: var(--parchment-dim);
+}
+
+.awards-note {
+  font-size: 0.75rem;
+  color: var(--gold);
+  max-width: 320px;
+  margin-top: 0.3rem;
+}
+
+.awards-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.awards-badge-exact { background: rgba(76, 175, 80, 0.25); color: #8fe08f; }
+.awards-badge-fuzzy { background: rgba(201, 154, 59, 0.25); color: var(--gold); }
+.awards-badge-ambiguous,
+.awards-badge-unmatched { background: rgba(194, 63, 48, 0.25); color: #ff9a8a; }
+
+.awards-candidates,
+.awards-reassign-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+}
+.awards-candidates .btn-ghost,
+.awards-reassign-results .btn-ghost,
+.awards-fix-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+.awards-fix-link {
+  display: block;
+  margin-top: 0.3rem;
+  opacity: 0.7;
+}
+
+.awards-reassign {
+  margin-top: 0.4rem;
+}
+.awards-reassign input {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.78rem;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid var(--pitch-line);
+  border-radius: 4px;
+  background: var(--pitch-deep);
+  color: var(--parchment);
+  width: 180px;
+}
+.awards-reassign input:focus { outline: none; border-color: var(--gold); }

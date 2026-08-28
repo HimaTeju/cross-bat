@@ -253,6 +253,22 @@ def build():
             "type": 2, "description": name, "displayName": disp, "active": active,
         })
 
+    # Award categories (Orange Cap / Purple Cap / MVP) are appended here so a
+    # full regeneration from Cricsheet keeps the schema, but the *players*
+    # who hold them are never assigned by this script - that only happens
+    # once a human approves a match in the admin awards-review UI (see
+    # build_awards_data.py and server/src/data.js). Keep this list in sync
+    # with AWARD_CATEGORIES in build_awards_data.py.
+    for cat_id, cat_type, display_name, description, reputation in [
+        (500, 3, "Orange Cap", "Won the Orange Cap (leading run-scorer of an IPL season)", 60),
+        (501, 4, "Purple Cap", "Won the Purple Cap (leading wicket-taker of an IPL season)", 60),
+        (502, 5, "MVP", "Won the IPL Most Valuable Player award (Player of the Tournament, 2008-2012)", 65),
+    ]:
+        categories.append({
+            "id": cat_id, "name": display_name, "reputation": reputation,
+            "type": cat_type, "description": description, "displayName": display_name,
+        })
+
     nation_lookup, raw_nation_names = build_nation_lookup()
     id_to_teams, id_to_name, id_to_seasons, _id_to_team_seasons = parse_matches()
 

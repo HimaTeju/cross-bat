@@ -12,6 +12,9 @@ import {
   adminCreatePlayer,
   adminUpdatePlayer,
   adminDeletePlayer,
+  adminListStagedAwards,
+  adminApproveStagedAward,
+  adminRejectStagedAward,
 } from "./data.js";
 import { pickGrid } from "./gridgen.js";
 
@@ -90,6 +93,31 @@ app.delete("/api/admin/players/:name", (req, res) => {
   try {
     adminDeletePlayer(req.params.name);
     res.json({ ok: true });
+  } catch (err) {
+    if (err instanceof AdminError) return res.status(400).json({ error: err.message });
+    throw err;
+  }
+});
+
+app.get("/api/admin/awards/staged", (req, res) => {
+  res.json({ entries: adminListStagedAwards() });
+});
+
+app.post("/api/admin/awards/staged/:id/approve", (req, res) => {
+  const id = Number(req.params.id);
+  const { name } = req.body || {};
+  try {
+    res.json(adminApproveStagedAward(id, name));
+  } catch (err) {
+    if (err instanceof AdminError) return res.status(400).json({ error: err.message });
+    throw err;
+  }
+});
+
+app.post("/api/admin/awards/staged/:id/reject", (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    res.json(adminRejectStagedAward(id));
   } catch (err) {
     if (err instanceof AdminError) return res.status(400).json({ error: err.message });
     throw err;
