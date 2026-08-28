@@ -9,13 +9,18 @@ const GAMES = [
     title: "IPL Grid",
     blurb: "Fill a 3×3 grid connecting national teams and IPL franchises with a real player who played for both.",
     stats: "844 players · 15 franchises · 2008–2026",
+    needsDifficulty: true,
+  },
+  {
+    to: "/career-path",
+    title: "Career Path",
+    blurb: "Guess the player from their IPL team history, revealed one franchise at a time — oldest first.",
+    stats: "50 players · a new puzzle every day",
+    needsDifficulty: false,
   },
 ];
 
-const COMING_SOON = [
-  { icon: "🔒", title: "Coming soon" },
-  { icon: "🔒", title: "Coming soon" },
-];
+const COMING_SOON = [{ icon: "🔒", title: "Coming soon" }];
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -45,7 +50,7 @@ export default function Landing() {
             key={g.to}
             type="button"
             className="game-card"
-            onClick={() => setPendingGame(g.to)}
+            onClick={() => (g.needsDifficulty ? setPendingGame(g.to) : navigate(g.to))}
           >
             <BrandMark className="game-card-icon brand-mark" />
             <h2>{g.title}</h2>
