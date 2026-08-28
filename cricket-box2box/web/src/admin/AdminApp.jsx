@@ -19,6 +19,7 @@ export default function AdminApp() {
   const nations = useMemo(() => categories.filter((c) => c.type === 1), [categories]);
   const nationIds = useMemo(() => new Set(nations.map((n) => n.id)), [nations]);
   const franchises = useMemo(() => categories.filter((c) => c.type === 2), [categories]);
+  const awardTypes = useMemo(() => new Set([3, 4, 5]), []);
   const seasonOptions = useMemo(() => {
     const set = new Set();
     for (const p of players) for (const s of p.seasons || []) set.add(s);
@@ -97,6 +98,9 @@ export default function AdminApp() {
           <Link className="admin-link" to="/ipl-grid">
             ← Back to game
           </Link>
+          <Link className="admin-link" to="/ipl-grid/admin/awards">
+            Awards review →
+          </Link>
           <button
             className="btn-primary"
             onClick={() => setEditing({ mode: "new", name: "", categoryIds: [] })}
@@ -164,6 +168,7 @@ export default function AdminApp() {
                 <th>Nation</th>
                 <th>Franchises</th>
                 <th>IPL years</th>
+                <th>Awards</th>
                 <th />
               </tr>
             </thead>
@@ -172,6 +177,7 @@ export default function AdminApp() {
                 const cats = p.categoryIds.map((id) => categoryById.get(id)).filter(Boolean);
                 const nation = cats.find((c) => c.type === 1);
                 const rowFranchises = cats.filter((c) => c.type === 2);
+                const rowAwards = cats.filter((c) => awardTypes.has(c.type));
                 const seasons = p.seasons || [];
                 const span = seasons.length
                   ? seasons.length === 1
@@ -197,6 +203,17 @@ export default function AdminApp() {
                       {span || <span className="tag-empty">no match data</span>}
                     </td>
                     <td>
+                      <div className="admin-franchises">
+                        {rowAwards.length
+                          ? rowAwards.map((a) => (
+                              <span key={a.id} className="tag">
+                                {a.displayName}
+                              </span>
+                            ))
+                          : <span className="tag-empty">—</span>}
+                      </div>
+                    </td>
+                    <td>
                       <div className="admin-row-actions">
                         <button className="btn-ghost" onClick={() => setEditing({ mode: "edit", name: p.name, categoryIds: p.categoryIds })}>
                           Edit
@@ -215,7 +232,7 @@ export default function AdminApp() {
               })}
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="admin-empty">
+                  <td colSpan={6} className="admin-empty">
                     No players match the current search/filters.
                   </td>
                 </tr>

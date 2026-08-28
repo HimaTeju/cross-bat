@@ -35,3 +35,25 @@ export function updatePlayer(currentName, name, categoryIds) {
 export function deletePlayer(name) {
   return fetch(`${BASE}/players/${encodeURIComponent(name)}`, { method: "DELETE" }).then(json);
 }
+
+export function fetchStagedAwards() {
+  return fetch(`${BASE}/awards/staged`).then(json).then((d) => d.entries);
+}
+
+export function approveStagedAward(id, name) {
+  return fetch(`${BASE}/awards/staged/${id}/approve`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name }),
+  }).then(json);
+}
+
+export function rejectStagedAward(id) {
+  return fetch(`${BASE}/awards/staged/${id}/reject`, { method: "POST" }).then(json);
+}
+
+export function searchPlayersAdmin(query, exclude = []) {
+  const base = `${import.meta.env.VITE_API_BASE || "https://cross-bat.onrender.com"}/api`;
+  const params = new URLSearchParams({ q: query, exclude: exclude.join(",") });
+  return fetch(`${base}/players/search?${params}`).then(json).then((d) => d.results);
+}

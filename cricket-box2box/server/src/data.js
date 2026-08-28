@@ -5,9 +5,11 @@ import { dirname, join } from "node:path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const GAMEDATA_PATH = join(__dirname, "../data/gamedata.json");
 const PLAYERS_PATH = join(__dirname, "../data/players.json");
+const AWARDS_STAGED_PATH = join(__dirname, "../data/awards-staged.json");
 
 const gamedataRaw = JSON.parse(readFileSync(GAMEDATA_PATH, "utf-8"));
 const playersRaw = JSON.parse(readFileSync(PLAYERS_PATH, "utf-8"));
+let stagedAwards = JSON.parse(readFileSync(AWARDS_STAGED_PATH, "utf-8")).entries;
 
 export const gameData = gamedataRaw.gameData;
 
@@ -196,4 +198,49 @@ export function checkGuess(rowId, colId, rawName) {
     return { correct: false, name: canonical, reason: "not-eligible" };
   }
   return { correct: true, name: canonical };
+}
+
+// ---------- Admin: staged award review ----------
+//
+// Award tags (Orange Cap, Purple Cap, MVP) are fetched/matched offline by
+// build_awards_data.py into awards-staged.json and never touch the live
+// player categories directly. A staged entry only affects the actual game
+// once an admin approves it here - that's the point of the review queue:
+// give a human a chance to catch a bad name match before it becomes a
+// scored grid answer.
+
+function persistStagedAwards() {
+  writeFileSync(AWARDS_STAGED_PATH, JSON.stringify({ entries: stagedAwards }, null, 2), "utf-8");
+}
+
+export function adminListStagedAwards() {
+  return stagedAwards;
+}
+
+function findStagedEntry(id) {
+  const entry = stagedAwards.find((e) => e.id === id);
+  if (!entry) throw new AdminError(`no staged award entry with id ${id}`);
+  if (entry.status !== "pending") throw new AdminError(`entry ${id} is already ${entry.status}`);
+  return entry;
+}
+
+export function adminApproveStagedAward(id, targetName) {
+  const entry = findStagedEntry(id);
+  const name = (targetName ?? entry.matchedName ?? "").trim();
+  if (!name) throw new AdminError("no target player name - pick one before approving");
+  if (!players.has(name)) throw new AdminError(`"${name}" is not in the player list`);
+  players.get(name).add(entry.categoryId);
+  entry.status = "approved";
+  entry.matchedName = name;
+  recomputePlayableCombos();
+  persist();
+  persistStagedAwards();
+  return entry;
+}
+
+export function adminRejectStagedAward(id) {
+  const entry = findStagedEntry(id);
+  entry.status = "rejected";
+  persistStagedAwards();
+  return entry;
 }

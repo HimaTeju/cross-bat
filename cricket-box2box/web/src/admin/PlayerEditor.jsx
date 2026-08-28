@@ -8,11 +8,15 @@ export default function PlayerEditor({ categories, initialName, initialCategoryI
   const [franchiseIds, setFranchiseIds] = useState(
     () => new Set(initialCategoryIds.filter((id) => categories.find((c) => c.id === id)?.type === 2))
   );
+  const [awardIds, setAwardIds] = useState(
+    () => new Set(initialCategoryIds.filter((id) => [3, 4, 5].includes(categories.find((c) => c.id === id)?.type)))
+  );
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
 
   const nations = categories.filter((c) => c.type === 1);
   const franchises = categories.filter((c) => c.type === 2);
+  const awards = categories.filter((c) => [3, 4, 5].includes(c.type));
 
   function toggleFranchise(id) {
     setFranchiseIds((prev) => {
@@ -23,10 +27,19 @@ export default function PlayerEditor({ categories, initialName, initialCategoryI
     });
   }
 
+  function toggleAward(id) {
+    setAwardIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
   async function handleSave() {
     setError(null);
     setSaving(true);
-    const categoryIds = [...(nationId != null ? [nationId] : []), ...franchiseIds];
+    const categoryIds = [...(nationId != null ? [nationId] : []), ...franchiseIds, ...awardIds];
     try {
       await onSave({ name: name.trim(), categoryIds });
     } catch (err) {
@@ -77,6 +90,20 @@ export default function PlayerEditor({ categories, initialName, initialCategoryI
             ))}
           </div>
         </fieldset>
+
+        {awards.length > 0 && (
+          <fieldset className="admin-field">
+            <legend>Awards</legend>
+            <div className="admin-checkbox-grid">
+              {awards.map((a) => (
+                <label key={a.id} className="admin-checkbox">
+                  <input type="checkbox" checked={awardIds.has(a.id)} onChange={() => toggleAward(a.id)} />
+                  {a.displayName}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        )}
 
         {error && <p className="error-banner">{error}</p>}
 
