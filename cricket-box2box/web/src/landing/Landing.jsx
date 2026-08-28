@@ -15,7 +15,7 @@ const GAMES = [
     to: "/career-path",
     title: "Career Path",
     blurb: "Guess the player from their IPL team history, revealed one franchise at a time — oldest first.",
-    stats: "422 players · a new puzzle every day",
+    stats: "50 players · a new puzzle every day",
     needsDifficulty: false,
   },
 ];
