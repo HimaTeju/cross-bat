@@ -26,6 +26,15 @@ const RUNS_FRAC_RANGE = 0.22;
 const WICKETS_FRAC_MIN = 0.32;
 const WICKETS_FRAC_RANGE = 0.28;
 
+// Day 1 of the daily counter - arbitrary reference point, only used to
+// print a Wordle-style "Game #N" badge.
+const GAME_NUMBER_EPOCH = Date.UTC(2026, 7, 1);
+
+export function dailyGameNumber(date = new Date()) {
+  const today = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+  return Math.floor((today - GAME_NUMBER_EPOCH) / 86400000) + 1;
+}
+
 export function dailyTarget(date = new Date()) {
   const dateKey = date.toISOString().slice(0, 10);
   const h = hashString(dateKey);
@@ -33,6 +42,7 @@ export function dailyTarget(date = new Date()) {
   const wicketsFrac = WICKETS_FRAC_MIN + (((h >>> 10) % 1000) / 1000) * WICKETS_FRAC_RANGE;
   return {
     dateKey,
+    gameNumber: dailyGameNumber(date),
     runs: roundTo(calibration.maxRuns * runsFrac, 500),
     wickets: roundTo(calibration.maxWickets * wicketsFrac, 25),
   };

@@ -4,415 +4,484 @@
       "name": "A Mishra",
       "runs": 381,
       "wickets": 174,
-      "matches": 162
+      "matches": 162,
+      "team": "Lucknow Super Giants"
     },
     {
       "name": "A Nehra",
       "runs": 41,
       "wickets": 106,
-      "matches": 88
+      "matches": 88,
+      "team": "Sunrisers Hyderabad"
     },
     {
       "name": "AB de Villiers",
       "runs": 5181,
       "wickets": 0,
-      "matches": 170
+      "matches": 170,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "AD Russell",
       "runs": 2655,
       "wickets": 123,
-      "matches": 134
+      "matches": 134,
+      "team": "Kolkata Knight Riders"
     },
     {
       "name": "AM Rahane",
       "runs": 5367,
       "wickets": 1,
-      "matches": 197
+      "matches": 197,
+      "team": "Kolkata Knight Riders"
     },
     {
       "name": "AR Patel",
       "runs": 2089,
       "wickets": 139,
-      "matches": 177
+      "matches": 177,
+      "team": "Delhi Capitals"
     },
     {
       "name": "AT Rayudu",
       "runs": 4348,
       "wickets": 0,
-      "matches": 185
+      "matches": 185,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "Arshdeep Singh",
       "runs": 32,
       "wickets": 111,
-      "matches": 95
+      "matches": 95,
+      "team": "Punjab Kings"
     },
     {
       "name": "B Kumar",
       "runs": 354,
       "wickets": 226,
-      "matches": 206
+      "matches": 206,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "BB McCullum",
       "runs": 2882,
       "wickets": 0,
-      "matches": 109
+      "matches": 109,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "CH Gayle",
       "runs": 4997,
       "wickets": 18,
-      "matches": 141
+      "matches": 141,
+      "team": "Punjab Kings"
     },
     {
       "name": "CH Morris",
       "runs": 618,
       "wickets": 96,
-      "matches": 81
+      "matches": 81,
+      "team": "Rajasthan Royals"
     },
     {
       "name": "CV Varun",
       "runs": 31,
       "wickets": 111,
-      "matches": 94
+      "matches": 94,
+      "team": "Kolkata Knight Riders"
     },
     {
       "name": "DA Miller",
       "runs": 3288,
       "wickets": 0,
-      "matches": 143
+      "matches": 143,
+      "team": "Delhi Capitals"
     },
     {
       "name": "DA Warner",
       "runs": 6567,
       "wickets": 0,
-      "matches": 184
+      "matches": 184,
+      "team": "Delhi Capitals"
     },
     {
       "name": "DJ Bravo",
       "runs": 1560,
       "wickets": 183,
-      "matches": 160
+      "matches": 160,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "DL Chahar",
       "runs": 142,
       "wickets": 96,
-      "matches": 103
+      "matches": 103,
+      "team": "Mumbai Indians"
     },
     {
       "name": "DW Steyn",
       "runs": 167,
       "wickets": 97,
-      "matches": 95
+      "matches": 95,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "F du Plessis",
       "runs": 4773,
       "wickets": 0,
-      "matches": 147
+      "matches": 147,
+      "team": "Delhi Capitals"
     },
     {
       "name": "G Gambhir",
       "runs": 4217,
       "wickets": 0,
-      "matches": 151
+      "matches": 151,
+      "team": "Delhi Capitals"
     },
     {
       "name": "HH Pandya",
       "runs": 2964,
       "wickets": 82,
-      "matches": 159
+      "matches": 159,
+      "team": "Mumbai Indians"
     },
     {
       "name": "HV Patel",
       "runs": 280,
       "wickets": 151,
-      "matches": 122
+      "matches": 122,
+      "team": "Sunrisers Hyderabad"
     },
     {
       "name": "Harbhajan Singh",
       "runs": 833,
       "wickets": 150,
-      "matches": 163
+      "matches": 163,
+      "team": "Kolkata Knight Riders"
     },
     {
       "name": "I Sharma",
       "runs": 57,
       "wickets": 96,
-      "matches": 117
+      "matches": 117,
+      "team": "Gujarat Titans"
     },
     {
       "name": "Ishan Kishan",
       "runs": 3600,
       "wickets": 0,
-      "matches": 127
+      "matches": 127,
+      "team": "Sunrisers Hyderabad"
     },
     {
       "name": "JC Buttler",
       "runs": 4647,
       "wickets": 0,
-      "matches": 136
+      "matches": 136,
+      "team": "Gujarat Titans"
     },
     {
       "name": "JD Unadkat",
       "runs": 201,
       "wickets": 114,
-      "matches": 115
+      "matches": 115,
+      "team": "Sunrisers Hyderabad"
     },
     {
       "name": "JJ Bumrah",
       "runs": 75,
       "wickets": 190,
-      "matches": 158
+      "matches": 158,
+      "team": "Mumbai Indians"
     },
     {
       "name": "K Rabada",
       "runs": 262,
       "wickets": 151,
-      "matches": 101
+      "matches": 101,
+      "team": "Gujarat Titans"
     },
     {
       "name": "KA Pollard",
       "runs": 3437,
       "wickets": 69,
-      "matches": 179
+      "matches": 179,
+      "team": "Mumbai Indians"
     },
     {
       "name": "KD Karthik",
       "runs": 4843,
       "wickets": 0,
-      "matches": 233
+      "matches": 233,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "KH Pandya",
       "runs": 1982,
       "wickets": 107,
-      "matches": 158
+      "matches": 158,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "KL Rahul",
       "runs": 5828,
       "wickets": 0,
-      "matches": 149
+      "matches": 149,
+      "team": "Delhi Capitals"
     },
     {
       "name": "Kuldeep Yadav",
       "runs": 210,
       "wickets": 112,
-      "matches": 110
+      "matches": 110,
+      "team": "Delhi Capitals"
     },
     {
       "name": "MK Pandey",
       "runs": 4021,
       "wickets": 0,
-      "matches": 163
+      "matches": 163,
+      "team": "Kolkata Knight Riders"
     },
     {
       "name": "MM Sharma",
       "runs": 125,
       "wickets": 134,
-      "matches": 120
+      "matches": 120,
+      "team": "Delhi Capitals"
     },
     {
       "name": "MS Dhoni",
       "runs": 5439,
       "wickets": 0,
-      "matches": 241
+      "matches": 241,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "Mohammed Shami",
       "runs": 115,
       "wickets": 145,
-      "matches": 132
+      "matches": 132,
+      "team": "Lucknow Super Giants"
     },
     {
       "name": "Mohammed Siraj",
       "runs": 117,
       "wickets": 128,
-      "matches": 125
+      "matches": 125,
+      "team": "Gujarat Titans"
     },
     {
       "name": "N Rana",
       "runs": 3078,
       "wickets": 10,
-      "matches": 123
+      "matches": 123,
+      "team": "Delhi Capitals"
     },
     {
       "name": "PA Patel",
       "runs": 2848,
       "wickets": 0,
-      "matches": 136
+      "matches": 136,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "PP Chawla",
       "runs": 624,
       "wickets": 192,
-      "matches": 192
+      "matches": 192,
+      "team": "Mumbai Indians"
     },
     {
       "name": "Q de Kock",
       "runs": 3444,
       "wickets": 0,
-      "matches": 118
+      "matches": 118,
+      "team": "Mumbai Indians"
     },
     {
       "name": "R Ashwin",
       "runs": 833,
       "wickets": 187,
-      "matches": 217
+      "matches": 217,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "R Vinay Kumar",
       "runs": 310,
       "wickets": 105,
-      "matches": 104
+      "matches": 104,
+      "team": "Kolkata Knight Riders"
     },
     {
       "name": "RA Jadeja",
       "runs": 3526,
       "wickets": 180,
-      "matches": 259
+      "matches": 259,
+      "team": "Rajasthan Royals"
     },
     {
       "name": "RD Gaikwad",
       "runs": 2839,
       "wickets": 0,
-      "matches": 84
+      "matches": 84,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "RG Sharma",
       "runs": 7331,
       "wickets": 15,
-      "matches": 275
+      "matches": 275,
+      "team": "Mumbai Indians"
     },
     {
       "name": "RR Pant",
       "runs": 3879,
       "wickets": 0,
-      "matches": 136
+      "matches": 136,
+      "team": "Lucknow Super Giants"
     },
     {
       "name": "RV Uthappa",
       "runs": 4954,
       "wickets": 0,
-      "matches": 197
+      "matches": 197,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "Rashid Khan",
       "runs": 635,
       "wickets": 179,
-      "matches": 153
+      "matches": 153,
+      "team": "Gujarat Titans"
     },
     {
       "name": "S Dhawan",
       "runs": 6769,
       "wickets": 4,
-      "matches": 221
+      "matches": 221,
+      "team": "Punjab Kings"
     },
     {
       "name": "SA Yadav",
       "runs": 4581,
       "wickets": 0,
-      "matches": 165
+      "matches": 165,
+      "team": "Mumbai Indians"
     },
     {
       "name": "SK Raina",
       "runs": 5536,
       "wickets": 25,
-      "matches": 200
+      "matches": 200,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "SL Malinga",
       "runs": 88,
       "wickets": 170,
-      "matches": 122
+      "matches": 122,
+      "team": "Mumbai Indians"
     },
     {
       "name": "SN Thakur",
       "runs": 349,
       "wickets": 119,
-      "matches": 111
+      "matches": 111,
+      "team": "Mumbai Indians"
     },
     {
       "name": "SP Narine",
       "runs": 1820,
       "wickets": 209,
-      "matches": 201
+      "matches": 201,
+      "team": "Kolkata Knight Riders"
     },
     {
       "name": "SR Watson",
       "runs": 3880,
       "wickets": 92,
-      "matches": 145
+      "matches": 145,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "SS Iyer",
       "runs": 4233,
       "wickets": 0,
-      "matches": 144
+      "matches": 144,
+      "team": "Punjab Kings"
     },
     {
       "name": "SV Samson",
       "runs": 5181,
       "wickets": 0,
-      "matches": 185
+      "matches": 185,
+      "team": "Chennai Super Kings"
     },
     {
       "name": "Sandeep Sharma",
       "runs": 60,
       "wickets": 151,
-      "matches": 142
+      "matches": 142,
+      "team": "Rajasthan Royals"
     },
     {
       "name": "Shubman Gill",
       "runs": 4598,
       "wickets": 0,
-      "matches": 130
+      "matches": 130,
+      "team": "Gujarat Titans"
     },
     {
       "name": "TA Boult",
       "runs": 93,
       "wickets": 145,
-      "matches": 124
+      "matches": 124,
+      "team": "Mumbai Indians"
     },
     {
       "name": "UT Yadav",
       "runs": 208,
       "wickets": 144,
-      "matches": 147
+      "matches": 147,
+      "team": "Gujarat Titans"
     },
     {
       "name": "V Kohli",
       "runs": 9346,
       "wickets": 4,
-      "matches": 276
+      "matches": 276,
+      "team": "Royal Challengers Bengaluru"
     },
     {
       "name": "WP Saha",
       "runs": 2934,
       "wickets": 0,
-      "matches": 143
+      "matches": 143,
+      "team": "Gujarat Titans"
     },
     {
       "name": "YK Pathan",
       "runs": 3222,
       "wickets": 42,
-      "matches": 161
+      "matches": 161,
+      "team": "Sunrisers Hyderabad"
     },
     {
       "name": "YS Chahal",
       "runs": 37,
       "wickets": 233,
-      "matches": 184
+      "matches": 184,
+      "team": "Punjab Kings"
     },
     {
       "name": "Z Khan",
       "runs": 117,
       "wickets": 102,
-      "matches": 99
+      "matches": 99,
+      "team": "Delhi Capitals"
     }
   ],
   "calibration": {

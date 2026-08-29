@@ -63,8 +63,28 @@ def aggregate_stats():
     return runs, wickets, matches
 
 
+def season_sort_key(s):
+    try:
+        return int(s[:4])
+    except ValueError:
+        return 0
+
+
+def most_recent_team(team_seasons):
+    """team_seasons: {team: {season,...}} -> the team whose latest season is
+    most recent, for a single representative franchise badge per player."""
+    best_team, best_key = None, -1
+    for team, seasons in team_seasons.items():
+        if not seasons:
+            continue
+        key = max(season_sort_key(s) for s in seasons)
+        if key > best_key:
+            best_team, best_key = team, key
+    return best_team
+
+
 def build():
-    _id_to_teams, id_to_name, _id_to_seasons, _id_to_team_seasons = parse_matches()
+    _id_to_teams, id_to_name, _id_to_seasons, id_to_team_seasons = parse_matches()
     runs, wickets, matches = aggregate_stats()
 
     pids = set(runs) | set(wickets)
@@ -78,6 +98,7 @@ def build():
             "runs": runs.get(pid, 0),
             "wickets": wickets.get(pid, 0),
             "matches": len(matches.get(pid, ())),
+            "team": most_recent_team(id_to_team_seasons.get(pid, {})),
         })
 
     by_runs = sorted(stats, key=lambda s: -s["runs"])[:TOP_BATTERS]

@@ -1,10 +1,68 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import BrandMark from "../components/BrandMark";
-import { players, SQUAD_SIZE, dailyTarget, randomTarget } from "./data";
+import { FRANCHISE_STYLE } from "../teamStyles";
+import { players, SQUAD_SIZE, dailyTarget, randomTarget, dailyGameNumber } from "./data";
 
 function sum(arr, key) {
   return arr.reduce((total, p) => total + p[key], 0);
+}
+
+// Purely decorative arrangement around the ground - not real fielding
+// positions, just a pleasant scatter for up to 5 slots.
+const SLOT_POSITIONS = [
+  { x: 50, y: 12 },
+  { x: 84, y: 38 },
+  { x: 69, y: 82 },
+  { x: 31, y: 82 },
+  { x: 16, y: 38 },
+];
+
+function Ground({ squad, squadSize, status, gameLabel, onRemove }) {
+  return (
+    <div className="target-ground">
+      <svg className="target-ground-svg" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+        <ellipse cx="200" cy="150" rx="196" ry="146" className="ground-boundary" />
+        <ellipse cx="200" cy="150" rx="122" ry="90" className="ground-circle" />
+        <rect x="177" y="96" width="46" height="108" rx="3" className="ground-strip" />
+        <line x1="177" y1="120" x2="223" y2="120" className="ground-crease" />
+        <line x1="177" y1="180" x2="223" y2="180" className="ground-crease" />
+      </svg>
+
+      {Array.from({ length: squadSize }, (_, i) => squad[i]).map((p, i) => {
+        const pos = SLOT_POSITIONS[i % SLOT_POSITIONS.length];
+        const style = p ? FRANCHISE_STYLE[p.team] : null;
+        return (
+          <div key={i} className="target-slot" style={{ left: `${pos.x}%`, top: `${pos.y}%` }}>
+            {p ? (
+              <div
+                className="target-slot-chip"
+                style={style ? { background: style.bg, color: style.fg } : undefined}
+              >
+                {status === "playing" && (
+                  <button className="target-slot-remove" onClick={() => onRemove(p.name)} aria-label={`Remove ${p.name}`}>
+                    ×
+                  </button>
+                )}
+                {style?.logo && <img src={style.logo} alt="" className="target-slot-logo" />}
+                <span className="target-slot-name">{p.name}</span>
+                <span className="target-slot-stats">
+                  {p.runs.toLocaleString()}R · {p.wickets}W
+                </span>
+              </div>
+            ) : (
+              <div className="target-slot-empty">+</div>
+            )}
+          </div>
+        );
+      })}
+
+      <div className="target-ground-badge">
+        <span>{gameLabel}</span>
+        <span>{squadSize} PICKS</span>
+      </div>
+    </div>
+  );
 }
 
 export default function TargetChase() {
@@ -66,6 +124,8 @@ export default function TargetChase() {
   }
 
   const pickedNames = useMemo(() => new Set(squad.map((p) => p.name)), [squad]);
+
+  const gameLabel = mode === "daily" ? `GAME #${target.gameNumber ?? dailyGameNumber()}` : "PRACTICE";
 
   const pool = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -143,27 +203,7 @@ export default function TargetChase() {
         </div>
       </div>
 
-      <ul className="target-squad">
-        {Array.from({ length: SQUAD_SIZE }, (_, i) => squad[i]).map((p, i) => (
-          <li key={i} className={`target-slot${p ? " filled" : ""}`}>
-            {p ? (
-              <>
-                <span className="target-slot-name">{p.name}</span>
-                <span className="target-slot-stats">
-                  {p.runs.toLocaleString()}R · {p.wickets}W
-                </span>
-                {status === "playing" && (
-                  <button className="target-slot-remove" onClick={() => removePlayer(p.name)} aria-label={`Remove ${p.name}`}>
-                    ×
-                  </button>
-                )}
-              </>
-            ) : (
-              <span className="target-slot-empty">+</span>
-            )}
-          </li>
-        ))}
-      </ul>
+      <Ground squad={squad} squadSize={SQUAD_SIZE} status={status} gameLabel={gameLabel} onRemove={removePlayer} />
 
       {status === "playing" ? (
         <>
@@ -190,8 +230,10 @@ export default function TargetChase() {
             {pool.map((p) => {
               const picked = pickedNames.has(p.name);
               const full = squad.length >= SQUAD_SIZE;
+              const style = FRANCHISE_STYLE[p.team];
               return (
                 <li key={p.name} className={`target-pool-item${picked ? " picked" : ""}`}>
+                  {style?.logo && <img src={style.logo} alt="" className="target-pool-logo" />}
                   <span className="target-pool-name">{p.name}</span>
                   <span className="target-pool-stats">
                     {p.runs.toLocaleString()}R · {p.wickets}W
