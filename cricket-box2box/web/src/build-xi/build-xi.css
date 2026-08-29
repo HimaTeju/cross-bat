@@ -4,17 +4,6 @@
   padding: 2rem 1.25rem 3rem;
 }
 
-.buildxi-game-label {
-  text-align: center;
-  font-family: 'Archivo Narrow', sans-serif;
-  font-weight: 700;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  color: var(--gold);
-  opacity: 0.8;
-  margin: 0.75rem 0;
-}
-
 .buildxi-spin {
   display: flex;
   flex-direction: column;

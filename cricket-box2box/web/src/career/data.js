@@ -18,21 +18,6 @@ export function searchCareerPlayers(query, exclude = [], limit = 8) {
   return results;
 }
 
-function hashString(s) {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) {
-    h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
-  }
-  return h >>> 0;
-}
-
-// Same puzzle for everyone on a given UTC calendar day.
-export function dailyPuzzle(date = new Date()) {
-  const dateKey = date.toISOString().slice(0, 10);
-  const index = hashString(dateKey) % players.length;
-  return { player: players[index], dateKey };
-}
-
 export function randomPuzzle(excludeName) {
   if (players.length <= 1) return players[0];
   let p;

@@ -1,16 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import BrandMark from "../components/BrandMark";
+import ConfirmDialog from "../components/ConfirmDialog";
 import { FRANCHISE_STYLE } from "../teamStyles";
-import {
-  players,
-  SLOTS,
-  SQUAD_SIZE,
-  CATEGORIES,
-  calibration,
-  dailyCategory,
-  randomCategory,
-} from "./data";
+import { players, SLOTS, SQUAD_SIZE, CATEGORIES, calibration, randomCategory } from "./data";
 
 const ROLE_ORDER = ["wicketkeeper", "batter", "allrounder", "bowler"];
 const ROLE_LABELS = {
@@ -28,23 +21,22 @@ function remainingNeededElsewhere(counts, excludeRole) {
 }
 
 export default function BuildXI() {
-  const [mode, setMode] = useState("daily");
   const [phase, setPhase] = useState("spin"); // "spin" | "building" | "done"
-  const [category, setCategory] = useState(() => dailyCategory());
+  const [category, setCategory] = useState(() => randomCategory());
   const [spinning, setSpinning] = useState(false);
   const [spinLabel, setSpinLabel] = useState(null);
   const [squad, setSquad] = useState([]);
   const [activeRole, setActiveRole] = useState("wicketkeeper");
   const [query, setQuery] = useState("");
   const [copied, setCopied] = useState(false);
+  const [confirmNew, setConfirmNew] = useState(false);
 
   useEffect(() => {
     document.title = "Build Your XI — Cross Bat";
   }, []);
 
-  function newGame(nextMode) {
-    setMode(nextMode);
-    setCategory(nextMode === "daily" ? dailyCategory() : randomCategory());
+  function startNewGame() {
+    setCategory(randomCategory());
     setSquad([]);
     setPhase("spin");
     setSpinLabel(null);
@@ -53,10 +45,18 @@ export default function BuildXI() {
     setCopied(false);
   }
 
+  function requestNewGame() {
+    if (phase === "building" && squad.length > 0) {
+      setConfirmNew(true);
+    } else {
+      startNewGame();
+    }
+  }
+
   function spin() {
     if (spinning) return;
     setSpinning(true);
-    const target = mode === "daily" ? dailyCategory() : randomCategory();
+    const target = randomCategory();
     let ticks = 0;
     const totalTicks = 16;
     let delay = 60;
@@ -120,13 +120,10 @@ export default function BuildXI() {
 
   const total = useMemo(() => squad.reduce((t, p) => t + p[category.key], 0), [squad, category]);
 
-  const gameLabel = mode === "daily" ? `GAME #${category.gameNumber ?? ""}` : "PRACTICE";
-
   const shareText = useMemo(() => {
     if (phase !== "done") return null;
-    const label = mode === "daily" ? `Daily ${category.dateKey}` : "Practice";
-    return `🏏 Cross Bat Build Your XI — ${label}\nCategory: ${category.label}\nTotal: ${total.toLocaleString()} ${category.unit}`;
-  }, [phase, mode, category, total]);
+    return `🏏 Cross Bat Build Your XI\nCategory: ${category.label}\nTotal: ${total.toLocaleString()} ${category.unit}`;
+  }, [phase, category, total]);
 
   function copyShare() {
     if (!shareText) return;
@@ -151,17 +148,6 @@ export default function BuildXI() {
           </div>
         </div>
       </header>
-
-      <div className="career-modes">
-        <button className={mode === "daily" ? "btn-primary" : "btn-ghost"} onClick={() => newGame("daily")}>
-          Daily
-        </button>
-        <button className={mode === "practice" ? "btn-primary" : "btn-ghost"} onClick={() => newGame("practice")}>
-          Practice
-        </button>
-      </div>
-
-      <div className="buildxi-game-label">{gameLabel}</div>
 
       {phase === "spin" && (
         <div className="buildxi-spin">
@@ -272,7 +258,7 @@ export default function BuildXI() {
                 <button className="btn-primary" onClick={copyShare}>
                   {copied ? "Copied!" : "Copy result"}
                 </button>
-                <button className="btn-ghost" onClick={() => newGame("practice")}>
+                <button className="btn-ghost" onClick={startNewGame}>
                   Play another
                 </button>
               </div>
@@ -281,10 +267,30 @@ export default function BuildXI() {
         </>
       )}
 
+      <div className="controls">
+        <button className="btn-primary" onClick={requestNewGame}>
+          New XI
+        </button>
+      </div>
+
       <p className="footnote">
         Roles are inferred from real career batting/bowling rates, not hand-tagged — a handful of edge cases are
         possible. Runs, wickets, caps and trophies are real IPL career totals (2008–2026).
       </p>
+
+      {confirmNew && (
+        <ConfirmDialog
+          title="Start a new XI?"
+          message="This clears your current squad and picks. Are you sure?"
+          confirmLabel="New XI"
+          cancelLabel="Keep Playing"
+          onConfirm={() => {
+            setConfirmNew(false);
+            startNewGame();
+          }}
+          onCancel={() => setConfirmNew(false)}
+        />
+      )}
     </div>
   );
 }

@@ -4,13 +4,6 @@
   padding: 2rem 1.25rem 3rem;
 }
 
-.career-modes {
-  display: flex;
-  gap: 0.6rem;
-  justify-content: center;
-  margin: 1.25rem 0;
-}
-
 .career-blocks {
   list-style: none;
   margin: 0 0 1.25rem;
