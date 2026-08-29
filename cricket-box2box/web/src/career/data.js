@@ -10,7 +10,8 @@ export function searchCareerPlayers(query, exclude = [], limit = 8) {
   const results = [];
   for (const p of players) {
     if (excludeSet.has(p.name.toLowerCase())) continue;
-    if (p.name.toLowerCase().includes(q)) {
+    const matches = p.name.toLowerCase().includes(q) || (p.a || []).some((a) => a.toLowerCase().includes(q));
+    if (matches) {
       results.push(p.name);
       if (results.length >= limit) break;
     }

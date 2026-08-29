@@ -2,8 +2,11 @@
 """
 Matches the hand-verified season awards in awards_source.py against the
 *live* player dataset (server/data/players.json - the same file the admin
-panel reads and writes) and writes a staging file, server/data/awards-
-staged.json, for a human to review in the admin UI.
+panel reads and writes), using each player's alias list from the central
+registry (build_player_registry.py) so a formal award-source name like
+"Matthew Hayden" matches even when the game's display name is different
+("ML Hayden") - and writes a staging file, server/data/awards-staged.json,
+for a human to review in the admin UI.
 
 This script never writes to players.json/gamedata.json's player data
 directly - award tags only reach the live game data when an admin approves
@@ -53,14 +56,20 @@ def ensure_categories(gamedata):
     return added
 
 
-def build_indexes(names):
-    exact = {n.lower(): n for n in names}
-    by_key = defaultdict(list)
-    for n in names:
-        k = fuzzy_key(n)
-        if k:
-            by_key[k].append(n)
-    return exact, by_key
+def build_indexes(players_raw):
+    """exact/fuzzy indexes keyed on every name a player is known by - their
+    display name plus registry aliases (e.g. "ML Hayden" resolving to
+    "Matthew Hayden") - all mapping back to the canonical display name."""
+    exact = {}
+    by_key = defaultdict(set)
+    for p in players_raw["players"]:
+        canonical = p["n"]
+        for known_as in [canonical, *p.get("a", [])]:
+            exact[known_as.lower()] = canonical
+            k = fuzzy_key(known_as)
+            if k:
+                by_key[k].add(canonical)
+    return exact, {k: sorted(v) for k, v in by_key.items()}
 
 
 def match_name(raw_name, exact, by_key):
@@ -78,8 +87,7 @@ def match_name(raw_name, exact, by_key):
 
 def build():
     players_raw = json.load(open(PLAYERS_PATH, encoding="utf-8"))
-    names = [p["n"] for p in players_raw["players"]]
-    exact, by_key = build_indexes(names)
+    exact, by_key = build_indexes(players_raw)
 
     gamedata = json.load(open(GAMEDATA_PATH, encoding="utf-8"))
     added = ensure_categories(gamedata)

@@ -10,8 +10,8 @@
       "team": "Kings XI Punjab",
       "stat": "616 runs",
       "note": null,
-      "matchType": "exact",
-      "matchedName": "Shaun Marsh",
+      "matchType": "fuzzy",
+      "matchedName": "SE Marsh",
       "candidates": [],
       "status": "pending"
     },
@@ -40,8 +40,8 @@
       "team": "Mumbai Indians",
       "stat": "618 runs",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "SR Tendulkar",
+      "matchType": "exact",
+      "matchedName": "Sachin Tendulkar",
       "candidates": [],
       "status": "pending"
     },
@@ -100,8 +100,8 @@
       "team": "Kolkata Knight Riders",
       "stat": "660 runs",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "RV Uthappa",
+      "matchType": "exact",
+      "matchedName": "Robin Uthappa",
       "candidates": [],
       "status": "pending"
     },
@@ -115,8 +115,8 @@
       "team": "Sunrisers Hyderabad",
       "stat": "562 runs",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "DA Warner",
+      "matchType": "exact",
+      "matchedName": "David Warner",
       "candidates": [],
       "status": "pending"
     },
@@ -145,8 +145,8 @@
       "team": "Sunrisers Hyderabad",
       "stat": "641 runs",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "DA Warner",
+      "matchType": "exact",
+      "matchedName": "David Warner",
       "candidates": [],
       "status": "pending"
     },
@@ -160,8 +160,8 @@
       "team": "Sunrisers Hyderabad",
       "stat": "735 runs",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "KS Williamson",
+      "matchType": "exact",
+      "matchedName": "Kane Williamson",
       "candidates": [],
       "status": "pending"
     },
@@ -175,8 +175,8 @@
       "team": "Sunrisers Hyderabad",
       "stat": "692 runs",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "DA Warner",
+      "matchType": "exact",
+      "matchedName": "David Warner",
       "candidates": [],
       "status": "pending"
     },
@@ -370,12 +370,9 @@
       "team": "Chennai Super Kings",
       "stat": "32 wickets",
       "note": null,
-      "matchType": "ambiguous",
-      "matchedName": null,
-      "candidates": [
-        "DJ Bravo",
-        "DM Bravo"
-      ],
+      "matchType": "exact",
+      "matchedName": "Dwayne Bravo",
+      "candidates": [],
       "status": "pending"
     },
     {
@@ -388,8 +385,8 @@
       "team": "Chennai Super Kings",
       "stat": "23 wickets",
       "note": null,
-      "matchType": "exact",
-      "matchedName": "Mohit Sharma",
+      "matchType": "fuzzy",
+      "matchedName": "MM Sharma",
       "candidates": [],
       "status": "pending"
     },
@@ -403,12 +400,9 @@
       "team": "Chennai Super Kings",
       "stat": "26 wickets",
       "note": null,
-      "matchType": "ambiguous",
-      "matchedName": null,
-      "candidates": [
-        "DJ Bravo",
-        "DM Bravo"
-      ],
+      "matchType": "exact",
+      "matchedName": "Dwayne Bravo",
+      "candidates": [],
       "status": "pending"
     },
     {
@@ -421,8 +415,8 @@
       "team": "Sunrisers Hyderabad",
       "stat": "23 wickets",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "B Kumar",
+      "matchType": "exact",
+      "matchedName": "Bhuvneshwar Kumar",
       "candidates": [],
       "status": "pending"
     },
@@ -436,8 +430,8 @@
       "team": "Sunrisers Hyderabad",
       "stat": "26 wickets",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "B Kumar",
+      "matchType": "exact",
+      "matchedName": "Bhuvneshwar Kumar",
       "candidates": [],
       "status": "pending"
     },
@@ -451,8 +445,8 @@
       "team": "Kings XI Punjab",
       "stat": "24 wickets",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "AJ Tye",
+      "matchType": "exact",
+      "matchedName": "Andrew Tye",
       "candidates": [],
       "status": "pending"
     },
@@ -586,8 +580,8 @@
       "team": "Rajasthan Royals",
       "stat": "Player of the Tournament",
       "note": null,
-      "matchType": "exact",
-      "matchedName": "Shane Watson",
+      "matchType": "fuzzy",
+      "matchedName": "SR Watson",
       "candidates": [],
       "status": "pending"
     },
@@ -616,8 +610,8 @@
       "team": "Mumbai Indians",
       "stat": "Player of the Tournament",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "SR Tendulkar",
+      "matchType": "exact",
+      "matchedName": "Sachin Tendulkar",
       "candidates": [],
       "status": "pending"
     },
@@ -661,8 +655,8 @@
       "team": "Rajasthan Royals",
       "stat": "MVP",
       "note": null,
-      "matchType": "exact",
-      "matchedName": "Shane Watson",
+      "matchType": "fuzzy",
+      "matchedName": "SR Watson",
       "candidates": [],
       "status": "pending"
     },
@@ -676,8 +670,8 @@
       "team": "Kings XI Punjab",
       "stat": "MVP",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "GJ Maxwell",
+      "matchType": "exact",
+      "matchedName": "Glenn Maxwell",
       "candidates": [],
       "status": "pending"
     },
@@ -691,8 +685,8 @@
       "team": "Kolkata Knight Riders",
       "stat": "MVP",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "AD Russell",
+      "matchType": "exact",
+      "matchedName": "Andre Russell",
       "candidates": [],
       "status": "pending"
     },
@@ -721,8 +715,8 @@
       "team": "Rising Pune Supergiant",
       "stat": "MVP",
       "note": null,
-      "matchType": "exact",
-      "matchedName": "Ben Stokes",
+      "matchType": "fuzzy",
+      "matchedName": "BA Stokes",
       "candidates": [],
       "status": "pending"
     },
@@ -751,8 +745,8 @@
       "team": "Kolkata Knight Riders",
       "stat": "MVP",
       "note": null,
-      "matchType": "fuzzy",
-      "matchedName": "AD Russell",
+      "matchType": "exact",
+      "matchedName": "Andre Russell",
       "candidates": [],
       "status": "pending"
     },

@@ -32,11 +32,23 @@ export const playerSeasons = new Map(
   playersRaw.players.map((p) => [p.n, p.s || []])
 );
 
-// lowercase name -> canonical name, for case-insensitive exact lookup on guesses
+// name -> registry id (server/data/player-registry.json) + alternate name
+// spellings ("RG Sharma" for "Rohit Sharma") a guess or search query might
+// still use. Empty/undefined for admin-created players with no registry id.
+export const playerMeta = new Map(
+  playersRaw.players.map((p) => [p.n, { id: p.id ?? null, aliases: p.a || [] }])
+);
+
+// lowercase name/alias -> canonical name, for case-insensitive lookup on
+// guesses and search, so typing an old abbreviated form still resolves.
 export const nameIndex = new Map();
-for (const name of players.keys()) {
-  nameIndex.set(name.toLowerCase(), name);
+function rebuildNameIndexEntries() {
+  for (const [name, meta] of playerMeta) {
+    nameIndex.set(name.toLowerCase(), name);
+    for (const alias of meta.aliases) nameIndex.set(alias.toLowerCase(), name);
+  }
 }
+rebuildNameIndexEntries();
 
 // ---------- Admin: mutation, recompute, persistence ----------
 
@@ -88,16 +100,23 @@ function persist() {
   const playersOut = {
     players: [...players]
       .sort(([a], [b]) => a.localeCompare(b))
-      .map(([n, v]) => ({ n, v: [...v].sort((a, b) => a - b), s: playerSeasons.get(n) || [] })),
+      .map(([n, v]) => {
+        const meta = playerMeta.get(n) || { id: null, aliases: [] };
+        return {
+          n,
+          v: [...v].sort((a, b) => a - b),
+          s: playerSeasons.get(n) || [],
+          id: meta.id,
+          a: meta.aliases,
+        };
+      }),
   };
   writeFileSync(PLAYERS_PATH, JSON.stringify(playersOut, null, 2), "utf-8");
 }
 
 function rebuildNameIndex() {
   nameIndex.clear();
-  for (const name of players.keys()) {
-    nameIndex.set(name.toLowerCase(), name);
-  }
+  rebuildNameIndexEntries();
 }
 
 function validateCategoryIds(categoryIds) {
@@ -133,6 +152,7 @@ export function adminCreatePlayer(name, categoryIds) {
   validateCategoryIds(categoryIds);
   players.set(trimmed, new Set(categoryIds));
   playerSeasons.set(trimmed, []);
+  playerMeta.set(trimmed, { id: null, aliases: [] });
   rebuildNameIndex();
   recomputePlayableCombos();
   persist();
@@ -148,10 +168,13 @@ export function adminUpdatePlayer(currentName, { name, categoryIds }) {
   }
   validateCategoryIds(categoryIds);
   const existingSeasons = playerSeasons.get(currentName) || [];
+  const existingMeta = playerMeta.get(currentName) || { id: null, aliases: [] };
   players.delete(currentName);
   playerSeasons.delete(currentName);
+  playerMeta.delete(currentName);
   players.set(nextName, new Set(categoryIds));
   playerSeasons.set(nextName, existingSeasons);
+  playerMeta.set(nextName, existingMeta);
   rebuildNameIndex();
   recomputePlayableCombos();
   persist();
@@ -162,6 +185,7 @@ export function adminDeletePlayer(name) {
   if (!players.has(name)) throw new AdminError(`"${name}" not found`);
   players.delete(name);
   playerSeasons.delete(name);
+  playerMeta.delete(name);
   rebuildNameIndex();
   recomputePlayableCombos();
   persist();
@@ -174,7 +198,10 @@ export function searchPlayers(query, exclude = [], limit = 8) {
   const results = [];
   for (const name of players.keys()) {
     if (excludeSet.has(name.toLowerCase())) continue;
-    if (name.toLowerCase().includes(q)) {
+    const meta = playerMeta.get(name);
+    const matches =
+      name.toLowerCase().includes(q) || (meta && meta.aliases.some((a) => a.toLowerCase().includes(q)));
+    if (matches) {
       results.push(name);
       if (results.length >= limit) break;
     }

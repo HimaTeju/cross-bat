@@ -13,10 +13,16 @@ export const adjacency = new Map(
 // players: name -> Set<categoryId>
 export const players = new Map(playersRaw.players.map((p) => [p.n, new Set(p.v)]));
 
-// lowercase name -> canonical name, for case-insensitive exact lookup on guesses
+// name -> alternate name spellings ("RG Sharma" for "Rohit Sharma") a guess
+// or search query might still use - see server/data/player-registry.json.
+const aliasesByName = new Map(playersRaw.players.map((p) => [p.n, p.a || []]));
+
+// lowercase name/alias -> canonical name, for case-insensitive lookup on
+// guesses and search, so typing an old abbreviated form still resolves.
 export const nameIndex = new Map();
-for (const name of players.keys()) {
+for (const [name, aliases] of aliasesByName) {
   nameIndex.set(name.toLowerCase(), name);
+  for (const alias of aliases) nameIndex.set(alias.toLowerCase(), name);
 }
 
 export function searchPlayers(query, exclude = [], limit = 8) {
@@ -26,7 +32,9 @@ export function searchPlayers(query, exclude = [], limit = 8) {
   const results = [];
   for (const name of players.keys()) {
     if (excludeSet.has(name.toLowerCase())) continue;
-    if (name.toLowerCase().includes(q)) {
+    const aliases = aliasesByName.get(name) || [];
+    const matches = name.toLowerCase().includes(q) || aliases.some((a) => a.toLowerCase().includes(q));
+    if (matches) {
       results.push(name);
       if (results.length >= limit) break;
     }

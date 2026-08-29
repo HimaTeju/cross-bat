@@ -149,95 +149,16 @@ def parse_matches():
     print(f"parsed {n_matches} matches, {len(id_to_teams)} unique players")
     if unknown_teams:
         print("WARN unmapped team names:", dict(unknown_teams))
-    return id_to_teams, id_to_name, id_to_seasons, id_to_team_seasons
-
-
-def _split_name(name):
-    """Split into (given-name tokens, surname tokens), keeping particle words
-    (de/van/der/...) attached to the surname rather than the given-name part -
-    otherwise "Q de Kock" reads as abbreviated=["Q","de"] and fails the
-    all-uppercase check on "de"."""
-    toks = name.replace(".", " ").split()
-    surname_parts = [toks[-1]]
-    i = len(toks) - 2
-    while i > 0 and toks[i].lower() in SURNAME_PARTICLES:
-        surname_parts.insert(0, toks[i])
-        i -= 1
-    return toks[: i + 1], surname_parts
-
-
-def _is_abbreviated(name):
-    given, _surname = _split_name(name)
-    if not given:
-        return False
-    return all(t.isalpha() and t.isupper() for t in given)
-
-
-def _surname_of(name):
-    _given, surname_parts = _split_name(name)
-    return " ".join(surname_parts).lower()
-
-
-def _apply_merges(merges, players, *companions):
-    for ab, full in merges.items():
-        players[full] |= players[ab]
-        del players[ab]
-        for comp in companions:
-            if ab in comp:
-                comp[full] = comp.get(full, set()) | comp[ab]
-                del comp[ab]
-
-
-def merge_duplicate_identities(players, *companions):
-    """Cricsheet sometimes assigns two different registry ids to the same real
-    player (e.g. one season tagged "AF Milne", another tagged "Adam Milne"),
-    which splits their team history across two entries. Merge an abbreviated
-    ("AF Milne") entry into a full-name ("Adam Milne") entry when they share a
-    surname and first initial AND there is exactly one candidate on each side -
-    same ambiguity-rejection rule used for the nationality lookup, to avoid
-    merging two genuinely different people who happen to share initials.
-    Any extra dict passed as `companions` (e.g. per-player season sets) is
-    merged in lockstep so split identities don't also split their metadata."""
-    by_surname = defaultdict(list)
-    for name in players:
-        by_surname[_surname_of(name)].append(name)
-
-    merges = {}
-    for surname, names in by_surname.items():
-        if len(names) < 2:
-            continue
-        abbrev = [n for n in names if _is_abbreviated(n)]
-        full = [n for n in names if not _is_abbreviated(n)]
-        if not abbrev or not full:
-            continue
-        for ab in abbrev:
-            ab_initial = ab[0].lower()
-            candidates = [f for f in full if f[0].lower() == ab_initial]
-            if len(candidates) == 1:
-                merges[ab] = candidates[0]
-
-    _apply_merges(merges, players, *companions)
-    return merges
-
-
-def merge_dropped_initial(players, *companions):
-    """A second, narrower duplicate pattern: a player commonly known without
-    their first (given) initial, e.g. "B Sai Sudharsan" vs "Sai Sudharsan" or
-    "M Shahrukh Khan" vs "Shahrukh Khan". Exact-match after stripping the
-    leading single-letter token, so there's no ambiguity to reject."""
-    merges = {}
-    for name in players:
-        toks = name.replace(".", " ").split()
-        if len(toks) >= 3 and len(toks[0]) == 1 and toks[0].isalpha() and toks[0].isupper():
-            rest = " ".join(toks[1:])
-            if rest in players and rest != name:
-                merges[name] = rest
-
-    _apply_merges(merges, players, *companions)
-    return merges
+    return id_to_teams, id_to_name, id_to_seasons, id_to_team_seasons, id_to_name_votes
 
 
 def build():
+    # deferred import: build_player_registry imports parse_matches/fuzzy_key/
+    # build_nation_lookup from this module, so importing it back at module
+    # top-level here would be circular - safe to import lazily inside build()
+    # since neither module calls build() during its own import.
+    from build_player_registry import load_registry
+
     nation_id = {name: 100 + i for i, (name, _) in enumerate(NATIONS)}
     franchise_id = {name: 300 + i for i, (name, _, _, _) in enumerate(FRANCHISES_FULL)}
 
@@ -269,31 +190,40 @@ def build():
             "type": cat_type, "description": description, "displayName": display_name,
         })
 
-    nation_lookup, raw_nation_names = build_nation_lookup()
-    id_to_teams, id_to_name, id_to_seasons, _id_to_team_seasons = parse_matches()
+    nation_lookup, _raw_nation_names = build_nation_lookup()
+    id_to_teams, _id_to_name, id_to_seasons, _id_to_team_seasons, _votes = parse_matches()
+    registry = load_registry()
 
     players = {}  # display name -> set of category ids
     seasons = {}  # display name -> set of season strings the player actually appeared in
+    ids = {}  # display name -> registry id
+    aliases = {}  # display name -> set of alternate names (e.g. abbreviated forms)
 
     for pid, teams in id_to_teams.items():
-        name = id_to_name[pid]
+        entry = registry.get(pid)
+        name = entry["name"] if entry else _id_to_name[pid]
         if name in DROP_NAMES:
             continue
         v = set()
         for t in teams:
             v.add(franchise_id[t])
         key = fuzzy_key(name)
-        nation = nation_lookup.get(key)
+        nation = entry.get("nation") if entry else None
+        nation = nation or nation_lookup.get(key)
         if nation:
             v.add(nation_id[nation])
-        # de-dupe: if this exact display name already exists (shouldn't normally,
-        # ids are supposed to be unique per person), merge rather than overwrite
+        # de-dupe: multiple pids can resolve to the same registry entry (an
+        # explicit merge in player_name_overrides.json, or - rarely - two
+        # unrelated ids that happen to share a display name), so combine
+        # their team/season history rather than overwrite
         if name in players:
             players[name] |= v
             seasons[name] |= id_to_seasons.get(pid, set())
         else:
             players[name] = v
             seasons[name] = set(id_to_seasons.get(pid, set()))
+            ids[name] = entry["id"] if entry else None
+            aliases[name] = set(entry["aliases"]) if entry else set()
 
     # players in our verified nation lists who never matched a cricsheet id at all
     # (e.g. brand-new signings with no match history yet) - add them directly
@@ -309,16 +239,13 @@ def build():
             players[name] = {nation_id[nation], franchise_id[franchise]}
             seasons[name] = set()
 
-    # merge split identities - this must run after the current-squad supplement
-    # above, since most duplicates are cross-source: cricsheet only recorded an
-    # abbreviated form ("A Nortje") with the full historical team tags, while the
-    # hand-curated current-squad data adds the full name ("Anrich Nortje") as a
-    # seemingly-new player with only their current franchise + nation. `seasons`
-    # is passed through so a merged player's career span merges along with it.
-    merges = merge_duplicate_identities(players, seasons)
-    merges2 = merge_dropped_initial(players, seasons)
-    print(f"merged {len(merges)} split identities (e.g. initials-only + full-name duplicates)")
-    print(f"merged {len(merges2)} dropped-initial duplicates (e.g. \"B Sai Sudharsan\" + \"Sai Sudharsan\")")
+    # Split-identity merging (e.g. "A Nortje" + "Anrich Nortje" being the same
+    # real player under two Cricsheet ids) now happens once, centrally, in
+    # player-registry.json (see build_player_registry.py) - every pid above
+    # was already resolved to its registry name before reaching this point,
+    # so the current-squad supplement's "name already in players" check
+    # naturally catches the cross-source duplicate instead of needing a
+    # second name-string merge pass here.
 
     difficulty = {
         "minimumComboAnswers": 4,
@@ -375,7 +302,12 @@ def build():
 
     players_out = {
         "players": [
-            {"n": name, "v": sorted(v), "s": sorted(seasons.get(name, set()), key=season_sort_key)}
+            {
+                "n": name, "v": sorted(v),
+                "s": sorted(seasons.get(name, set()), key=season_sort_key),
+                "id": ids.get(name),
+                "a": sorted(aliases.get(name, set())),
+            }
             for name, v in sorted(players.items())
         ]
     }

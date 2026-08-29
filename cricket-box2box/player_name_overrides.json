@@ -1,0 +1,9 @@
+{
+  "merges": [
+    {
+      "pids": ["740742ef"],
+      "name": "Rohit Sharma",
+      "_comment": "Rohit Sharma's own single Cricsheet id (740742ef) has a clean, unbroken career (Deccan Chargers 2007/08-2009/10, Mumbai Indians 2011-2026) but votes the abbreviated scorecard spelling 'RG Sharma'. This is a rename only, not a merge: two other pids share the surname+initial key ('r|sharma') - 5d9a1a73 ('R Sharma', Deccan Chargers/Pune Warriors/Delhi Capitals 2009/10-2014) and 5b615e7c ('Raghu Sharma', Mumbai Indians 2026) - and were checked and confirmed to be different, unrelated players (their team history doesn't match Rohit Sharma's real career), so they are intentionally left alone."
+    }
+  ]
+}

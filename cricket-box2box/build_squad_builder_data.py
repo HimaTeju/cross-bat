@@ -7,8 +7,10 @@ spin a random stat category and let the user draft a realistic,
 role-constrained XI to maximize it.
 
 Reuses:
-- parse_matches() / MATCHES_DIR from build_full_data.py for identity
-  resolution and team-season history (same as every other build script).
+- parse_matches() / MATCHES_DIR from build_full_data.py for team-season
+  history, and the central registry (build_player_registry.load_registry())
+  for player identity/display name - same as every other build script, so a
+  player's name here always agrees with the other games.
 - aggregate_stats() / most_recent_team() from build_target_chase_data.py
   for runs/wickets/matches and each player's franchise badge - no need to
   re-walk every delivery a second time for numbers Target Chase already
@@ -39,6 +41,7 @@ import json
 from collections import defaultdict
 
 from build_full_data import parse_matches, MATCHES_DIR
+from build_player_registry import load_registry
 from build_target_chase_data import aggregate_stats, most_recent_team
 from awards_source import CHAMPIONS
 
@@ -89,20 +92,17 @@ def count_stumping_credits():
     return credits
 
 
-def count_trophies(id_to_team_seasons):
-    # De-dupe (team, year) per player first, in case the same real season
-    # shows up under two different season-string formats (e.g. "2020" and
-    # "2020/21" both appearing for the UAE-hosted 2020 season).
-    trophies = {}
-    for pid, team_seasons in id_to_team_seasons.items():
-        won = set()
-        for team, seasons in team_seasons.items():
-            for s in seasons:
-                year = season_sort_key(s)
-                if CHAMPIONS.get(year) == team:
-                    won.add((team, year))
-        trophies[pid] = len(won)
-    return trophies
+def count_trophies_for(team_seasons):
+    # De-dupe (team, year) first, in case the same real season shows up
+    # under two different season-string formats (e.g. "2020" and "2020/21"
+    # both appearing for the UAE-hosted 2020 season).
+    won = set()
+    for team, seasons in team_seasons.items():
+        for s in seasons:
+            year = season_sort_key(s)
+            if CHAMPIONS.get(year) == team:
+                won.add((team, year))
+    return len(won)
 
 
 def classify_role(runs, wickets, matches, stump_credits):
@@ -144,27 +144,49 @@ def best_possible(entries, stat_key):
 
 
 def build():
-    _id_to_teams, id_to_name, _id_to_seasons, id_to_team_seasons = parse_matches()
+    _id_to_teams, _id_to_name, _id_to_seasons, id_to_team_seasons, _votes = parse_matches()
     runs, wickets, matches = aggregate_stats()
     stump_credits = count_stumping_credits()
-    trophies = count_trophies(id_to_team_seasons)
+    registry = load_registry()
 
+    # Group by registry-resolved name first, not raw pid: a real player's
+    # career can be split across more than one Cricsheet id (see
+    # build_player_registry.py), and their runs/wickets/matches/trophies
+    # need to be summed across those ids rather than one silently
+    # overwriting the other.
     pids = set(runs) | set(wickets)
-    stats = []
+    by_name = {}
     for pid in pids:
-        name = id_to_name.get(pid)
+        entry = registry.get(pid)
+        name = entry["name"] if entry else _id_to_name.get(pid)
         if not name:
             continue
-        m = len(matches.get(pid, ()))
-        r, w = runs.get(pid, 0), wickets.get(pid, 0)
+        dest = by_name.setdefault(name, {
+            "id": entry["id"] if entry else None,
+            "aliases": entry["aliases"] if entry else [],
+            "runs": 0, "wickets": 0, "matches": set(), "stump": 0, "team_seasons": {},
+        })
+        dest["runs"] += runs.get(pid, 0)
+        dest["wickets"] += wickets.get(pid, 0)
+        dest["matches"] |= matches.get(pid, set())
+        dest["stump"] += stump_credits.get(pid, 0)
+        for team, seasons in id_to_team_seasons.get(pid, {}).items():
+            dest["team_seasons"].setdefault(team, set()).update(seasons)
+
+    stats = []
+    for name, d in by_name.items():
+        m = len(d["matches"])
+        r, w = d["runs"], d["wickets"]
         stats.append({
             "name": name,
-            "team": most_recent_team(id_to_team_seasons.get(pid, {})),
-            "role": classify_role(r, w, m, stump_credits.get(pid, 0)),
+            "id": d["id"],
+            "a": d["aliases"],
+            "team": most_recent_team(d["team_seasons"]),
+            "role": classify_role(r, w, m, d["stump"]),
             "runs": r,
             "wickets": w,
             "matches": m,
-            "trophies": trophies.get(pid, 0),
+            "trophies": count_trophies_for(d["team_seasons"]),
         })
 
     pool = {}

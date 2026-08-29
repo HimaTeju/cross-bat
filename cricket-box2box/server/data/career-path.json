@@ -2,13 +2,15 @@
   "players": [
     {
       "name": "A Mishra",
+      "id": "6b19d823",
+      "a": [],
       "blocks": [
         {
           "team": "Delhi Capitals",
           "seasons": [
             "2007/08",
-            "2009/10",
-            "2009"
+            "2009",
+            "2009/10"
           ]
         },
         {
@@ -49,13 +51,15 @@
     },
     {
       "name": "AB de Villiers",
+      "id": "c4487b84",
+      "a": [],
       "blocks": [
         {
           "team": "Delhi Capitals",
           "seasons": [
             "2007/08",
-            "2009",
-            "2009/10"
+            "2009/10",
+            "2009"
           ]
         },
         {
@@ -78,36 +82,9 @@
       "totalSeasons": 14
     },
     {
-      "name": "AD Russell",
-      "blocks": [
-        {
-          "team": "Delhi Capitals",
-          "seasons": [
-            "2012",
-            "2013"
-          ]
-        },
-        {
-          "team": "Kolkata Knight Riders",
-          "seasons": [
-            "2014",
-            "2015",
-            "2016",
-            "2018",
-            "2019",
-            "2020/21",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-            "2025"
-          ]
-        }
-      ],
-      "totalSeasons": 13
-    },
-    {
       "name": "AR Patel",
+      "id": "2e171977",
+      "a": [],
       "blocks": [
         {
           "team": "Punjab Kings",
@@ -136,7 +113,11 @@
       "totalSeasons": 13
     },
     {
-      "name": "AT Rayudu",
+      "name": "Ambati Rayudu",
+      "id": "70d205c9",
+      "a": [
+        "AT Rayudu"
+      ],
       "blocks": [
         {
           "team": "Mumbai Indians",
@@ -166,7 +147,44 @@
       "totalSeasons": 14
     },
     {
-      "name": "B Kumar",
+      "name": "Andre Russell",
+      "id": "bbd41817",
+      "a": [
+        "AD Russell"
+      ],
+      "blocks": [
+        {
+          "team": "Delhi Capitals",
+          "seasons": [
+            "2012",
+            "2013"
+          ]
+        },
+        {
+          "team": "Kolkata Knight Riders",
+          "seasons": [
+            "2014",
+            "2015",
+            "2016",
+            "2018",
+            "2019",
+            "2020/21",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025"
+          ]
+        }
+      ],
+      "totalSeasons": 13
+    },
+    {
+      "name": "Bhuvneshwar Kumar",
+      "id": "2e81a32d",
+      "a": [
+        "B Kumar"
+      ],
       "blocks": [
         {
           "team": "Pune Warriors",
@@ -203,13 +221,17 @@
       "totalSeasons": 16
     },
     {
-      "name": "CH Gayle",
+      "name": "Chris Gayle",
+      "id": "db584dad",
+      "a": [
+        "CH Gayle"
+      ],
       "blocks": [
         {
           "team": "Kolkata Knight Riders",
           "seasons": [
-            "2009",
-            "2009/10"
+            "2009/10",
+            "2009"
           ]
         },
         {
@@ -237,7 +259,11 @@
       "totalSeasons": 13
     },
     {
-      "name": "DA Miller",
+      "name": "David Miller",
+      "id": "d67d5f00",
+      "a": [
+        "DA Miller"
+      ],
       "blocks": [
         {
           "team": "Punjab Kings",
@@ -283,13 +309,17 @@
       "totalSeasons": 15
     },
     {
-      "name": "DA Warner",
+      "name": "David Warner",
+      "id": "dcce6f09",
+      "a": [
+        "DA Warner"
+      ],
       "blocks": [
         {
           "team": "Delhi Capitals",
           "seasons": [
-            "2009/10",
             "2009",
+            "2009/10",
             "2011",
             "2012",
             "2013"
@@ -319,30 +349,17 @@
       "totalSeasons": 15
     },
     {
-      "name": "DJ Bravo",
+      "name": "Deepak Chahar",
+      "id": "23eeb873",
+      "a": [
+        "DL Chahar"
+      ],
       "blocks": [
         {
-          "team": "Mumbai Indians",
+          "team": "Rising Pune Supergiant",
           "seasons": [
-            "2007/08",
-            "2009",
-            "2009/10"
-          ]
-        },
-        {
-          "team": "Chennai Super Kings",
-          "seasons": [
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015"
-          ]
-        },
-        {
-          "team": "Gujarat Lions",
-          "seasons": [
-            "2016"
+            "2016",
+            "2017"
           ]
         },
         {
@@ -352,14 +369,26 @@
             "2019",
             "2020/21",
             "2021",
-            "2022"
+            "2023",
+            "2024"
+          ]
+        },
+        {
+          "team": "Mumbai Indians",
+          "seasons": [
+            "2025",
+            "2026"
           ]
         }
       ],
-      "totalSeasons": 14
+      "totalSeasons": 10
     },
     {
-      "name": "DJ Hooda",
+      "name": "Deepak Hooda",
+      "id": "73ad96ed",
+      "a": [
+        "DJ Hooda"
+      ],
       "blocks": [
         {
           "team": "Rajasthan Royals",
@@ -401,12 +430,39 @@
       "totalSeasons": 11
     },
     {
-      "name": "DL Chahar",
+      "name": "Dwayne Bravo",
+      "id": "87e562a9",
+      "a": [
+        "DJ Bravo"
+      ],
       "blocks": [
         {
-          "team": "Rising Pune Supergiant",
+          "team": "Mumbai Indians",
           "seasons": [
-            "2016",
+            "2007/08",
+            "2009/10",
+            "2009"
+          ]
+        },
+        {
+          "team": "Chennai Super Kings",
+          "seasons": [
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015"
+          ]
+        },
+        {
+          "team": "Gujarat Lions",
+          "seasons": [
+            "2016"
+          ]
+        },
+        {
+          "team": "Kolkata Knight Riders",
+          "seasons": [
             "2017"
           ]
         },
@@ -417,22 +473,18 @@
             "2019",
             "2020/21",
             "2021",
-            "2023",
-            "2024"
-          ]
-        },
-        {
-          "team": "Mumbai Indians",
-          "seasons": [
-            "2025",
-            "2026"
+            "2022"
           ]
         }
       ],
-      "totalSeasons": 10
+      "totalSeasons": 15
     },
     {
-      "name": "F du Plessis",
+      "name": "Faf du Plessis",
+      "id": "3355b542",
+      "a": [
+        "F du Plessis"
+      ],
       "blocks": [
         {
           "team": "Chennai Super Kings",
@@ -476,14 +528,18 @@
       "totalSeasons": 13
     },
     {
-      "name": "G Gambhir",
+      "name": "Gautam Gambhir",
+      "id": "bb345e0b",
+      "a": [
+        "G Gambhir"
+      ],
       "blocks": [
         {
           "team": "Delhi Capitals",
           "seasons": [
             "2007/08",
-            "2009",
-            "2009/10"
+            "2009/10",
+            "2009"
           ]
         },
         {
@@ -508,7 +564,47 @@
       "totalSeasons": 11
     },
     {
-      "name": "HH Pandya",
+      "name": "Harbhajan Singh",
+      "id": "8b5b6769",
+      "a": [],
+      "blocks": [
+        {
+          "team": "Mumbai Indians",
+          "seasons": [
+            "2007/08",
+            "2009",
+            "2009/10",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017"
+          ]
+        },
+        {
+          "team": "Chennai Super Kings",
+          "seasons": [
+            "2018",
+            "2019"
+          ]
+        },
+        {
+          "team": "Kolkata Knight Riders",
+          "seasons": [
+            "2021"
+          ]
+        }
+      ],
+      "totalSeasons": 13
+    },
+    {
+      "name": "Hardik Pandya",
+      "id": "dbe50b21",
+      "a": [
+        "HH Pandya"
+      ],
       "blocks": [
         {
           "team": "Mumbai Indians",
@@ -541,7 +637,11 @@
       "totalSeasons": 12
     },
     {
-      "name": "HV Patel",
+      "name": "Harshal Patel",
+      "id": "f986ca1a",
+      "a": [
+        "HV Patel"
+      ],
       "blocks": [
         {
           "team": "Royal Challengers Bengaluru",
@@ -586,81 +686,9 @@
       "totalSeasons": 14
     },
     {
-      "name": "Harbhajan Singh",
-      "blocks": [
-        {
-          "team": "Mumbai Indians",
-          "seasons": [
-            "2007/08",
-            "2009/10",
-            "2009",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017"
-          ]
-        },
-        {
-          "team": "Chennai Super Kings",
-          "seasons": [
-            "2018",
-            "2019"
-          ]
-        },
-        {
-          "team": "Kolkata Knight Riders",
-          "seasons": [
-            "2021"
-          ]
-        }
-      ],
-      "totalSeasons": 13
-    },
-    {
-      "name": "IK Pathan",
-      "blocks": [
-        {
-          "team": "Punjab Kings",
-          "seasons": [
-            "2007/08",
-            "2009",
-            "2009/10"
-          ]
-        },
-        {
-          "team": "Delhi Capitals",
-          "seasons": [
-            "2011",
-            "2012",
-            "2013"
-          ]
-        },
-        {
-          "team": "Sunrisers Hyderabad",
-          "seasons": [
-            "2014"
-          ]
-        },
-        {
-          "team": "Rising Pune Supergiant",
-          "seasons": [
-            "2016"
-          ]
-        },
-        {
-          "team": "Gujarat Lions",
-          "seasons": [
-            "2017"
-          ]
-        }
-      ],
-      "totalSeasons": 9
-    },
-    {
       "name": "Ishan Kishan",
+      "id": "752f7486",
+      "a": [],
       "blocks": [
         {
           "team": "Gujarat Lions",
@@ -692,7 +720,39 @@
       "totalSeasons": 11
     },
     {
-      "name": "JC Buttler",
+      "name": "Jasprit Bumrah",
+      "id": "462411b3",
+      "a": [
+        "JJ Bumrah"
+      ],
+      "blocks": [
+        {
+          "team": "Mumbai Indians",
+          "seasons": [
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020/21",
+            "2021",
+            "2022",
+            "2024",
+            "2025",
+            "2026"
+          ]
+        }
+      ],
+      "totalSeasons": 13
+    },
+    {
+      "name": "Jos Buttler",
+      "id": "99b75528",
+      "a": [
+        "JC Buttler"
+      ],
       "blocks": [
         {
           "team": "Mumbai Indians",
@@ -724,31 +784,11 @@
       "totalSeasons": 11
     },
     {
-      "name": "JJ Bumrah",
-      "blocks": [
-        {
-          "team": "Mumbai Indians",
-          "seasons": [
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020/21",
-            "2021",
-            "2022",
-            "2024",
-            "2025",
-            "2026"
-          ]
-        }
+      "name": "Kieron Pollard",
+      "id": "a757b0d8",
+      "a": [
+        "KA Pollard"
       ],
-      "totalSeasons": 13
-    },
-    {
-      "name": "KA Pollard",
       "blocks": [
         {
           "team": "Mumbai Indians",
@@ -772,7 +812,11 @@
       "totalSeasons": 13
     },
     {
-      "name": "KH Pandya",
+      "name": "Krunal Pandya",
+      "id": "5b8c830e",
+      "a": [
+        "KH Pandya"
+      ],
       "blocks": [
         {
           "team": "Mumbai Indians",
@@ -805,6 +849,8 @@
     },
     {
       "name": "Kuldeep Yadav",
+      "id": "8d2c70ad",
+      "a": [],
       "blocks": [
         {
           "team": "Kolkata Knight Riders",
@@ -817,43 +863,28 @@
           ]
         },
         {
-          "team": "Rajasthan Royals",
-          "seasons": [
-            "2021"
-          ]
-        },
-        {
           "team": "Delhi Capitals",
           "seasons": [
             "2022",
-            "2023"
-          ]
-        },
-        {
-          "team": "Rajasthan Royals",
-          "seasons": [
-            "2023"
-          ]
-        },
-        {
-          "team": "Delhi Capitals",
-          "seasons": [
+            "2023",
             "2024",
             "2025",
             "2026"
           ]
         }
       ],
-      "totalSeasons": 11
+      "totalSeasons": 10
     },
     {
       "name": "M Vijay",
+      "id": "4b57e452",
+      "a": [],
       "blocks": [
         {
           "team": "Chennai Super Kings",
           "seasons": [
-            "2009/10",
             "2009",
+            "2009/10",
             "2011",
             "2012",
             "2013"
@@ -884,7 +915,52 @@
       "totalSeasons": 11
     },
     {
-      "name": "MP Stoinis",
+      "name": "MS Dhoni",
+      "id": "4a8a2e3b",
+      "a": [],
+      "blocks": [
+        {
+          "team": "Chennai Super Kings",
+          "seasons": [
+            "2007/08",
+            "2009",
+            "2009/10",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015"
+          ]
+        },
+        {
+          "team": "Rising Pune Supergiant",
+          "seasons": [
+            "2016",
+            "2017"
+          ]
+        },
+        {
+          "team": "Chennai Super Kings",
+          "seasons": [
+            "2018",
+            "2019",
+            "2020/21",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025"
+          ]
+        }
+      ],
+      "totalSeasons": 18
+    },
+    {
+      "name": "Marcus Stoinis",
+      "id": "d9273ee7",
+      "a": [
+        "MP Stoinis"
+      ],
       "blocks": [
         {
           "team": "Punjab Kings",
@@ -926,46 +1002,9 @@
       "totalSeasons": 11
     },
     {
-      "name": "MS Dhoni",
-      "blocks": [
-        {
-          "team": "Chennai Super Kings",
-          "seasons": [
-            "2007/08",
-            "2009/10",
-            "2009",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015"
-          ]
-        },
-        {
-          "team": "Rising Pune Supergiant",
-          "seasons": [
-            "2016",
-            "2017"
-          ]
-        },
-        {
-          "team": "Chennai Super Kings",
-          "seasons": [
-            "2018",
-            "2019",
-            "2020/21",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-            "2025"
-          ]
-        }
-      ],
-      "totalSeasons": 18
-    },
-    {
       "name": "Mohammed Siraj",
+      "id": "2f49c897",
+      "a": [],
       "blocks": [
         {
           "team": "Sunrisers Hyderabad",
@@ -996,7 +1035,49 @@
       "totalSeasons": 10
     },
     {
-      "name": "N Pooran",
+      "name": "NV Ojha",
+      "id": "890946a0",
+      "a": [],
+      "blocks": [
+        {
+          "team": "Rajasthan Royals",
+          "seasons": [
+            "2009/10",
+            "2009"
+          ]
+        },
+        {
+          "team": "Delhi Capitals",
+          "seasons": [
+            "2011",
+            "2012",
+            "2013"
+          ]
+        },
+        {
+          "team": "Sunrisers Hyderabad",
+          "seasons": [
+            "2014",
+            "2015",
+            "2016",
+            "2017"
+          ]
+        },
+        {
+          "team": "Delhi Capitals",
+          "seasons": [
+            "2018"
+          ]
+        }
+      ],
+      "totalSeasons": 10
+    },
+    {
+      "name": "Nicholas Pooran",
+      "id": "3241e3fd",
+      "a": [
+        "N Pooran"
+      ],
       "blocks": [
         {
           "team": "Punjab Kings",
@@ -1025,7 +1106,11 @@
       "totalSeasons": 8
     },
     {
-      "name": "N Rana",
+      "name": "Nitish Rana",
+      "id": "fb2d1dda",
+      "a": [
+        "N Rana"
+      ],
       "blocks": [
         {
           "team": "Mumbai Indians",
@@ -1062,17 +1147,20 @@
       "totalSeasons": 11
     },
     {
-      "name": "NV Ojha",
+      "name": "P Kumar",
+      "id": "e938e1bc",
+      "a": [],
       "blocks": [
         {
-          "team": "Rajasthan Royals",
+          "team": "Royal Challengers Bengaluru",
           "seasons": [
-            "2009",
-            "2009/10"
+            "2007/08",
+            "2009/10",
+            "2009"
           ]
         },
         {
-          "team": "Delhi Capitals",
+          "team": "Punjab Kings",
           "seasons": [
             "2011",
             "2012",
@@ -1080,18 +1168,22 @@
           ]
         },
         {
-          "team": "Sunrisers Hyderabad",
+          "team": "Mumbai Indians",
           "seasons": [
-            "2014",
-            "2015",
-            "2016",
-            "2017"
+            "2014"
           ]
         },
         {
-          "team": "Delhi Capitals",
+          "team": "Sunrisers Hyderabad",
           "seasons": [
-            "2018"
+            "2015"
+          ]
+        },
+        {
+          "team": "Gujarat Lions",
+          "seasons": [
+            "2016",
+            "2017"
           ]
         }
       ],
@@ -1099,13 +1191,15 @@
     },
     {
       "name": "PP Chawla",
+      "id": "98ae73b1",
+      "a": [],
       "blocks": [
         {
           "team": "Punjab Kings",
           "seasons": [
             "2007/08",
-            "2009",
             "2009/10",
+            "2009",
             "2011",
             "2012",
             "2013"
@@ -1140,7 +1234,11 @@
       "totalSeasons": 16
     },
     {
-      "name": "R Tewatia",
+      "name": "Rahul Tewatia",
+      "id": "39a2dfa8",
+      "a": [
+        "R Tewatia"
+      ],
       "blocks": [
         {
           "team": "Rajasthan Royals",
@@ -1183,33 +1281,9 @@
       "totalSeasons": 12
     },
     {
-      "name": "RR Pant",
-      "blocks": [
-        {
-          "team": "Delhi Capitals",
-          "seasons": [
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020/21",
-            "2021",
-            "2022",
-            "2024"
-          ]
-        },
-        {
-          "team": "Lucknow Super Giants",
-          "seasons": [
-            "2025",
-            "2026"
-          ]
-        }
-      ],
-      "totalSeasons": 10
-    },
-    {
       "name": "Rashid Khan",
+      "id": "5f547c8b",
+      "a": [],
       "blocks": [
         {
           "team": "Sunrisers Hyderabad",
@@ -1235,7 +1309,78 @@
       "totalSeasons": 10
     },
     {
+      "name": "Rishabh Pant",
+      "id": "919a3be2",
+      "a": [
+        "RR Pant"
+      ],
+      "blocks": [
+        {
+          "team": "Delhi Capitals",
+          "seasons": [
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020/21",
+            "2021",
+            "2022",
+            "2024"
+          ]
+        },
+        {
+          "team": "Lucknow Super Giants",
+          "seasons": [
+            "2025",
+            "2026"
+          ]
+        }
+      ],
+      "totalSeasons": 10
+    },
+    {
+      "name": "Rohit Sharma",
+      "id": "740742ef",
+      "a": [
+        "RG Sharma"
+      ],
+      "blocks": [
+        {
+          "team": "Deccan Chargers",
+          "seasons": [
+            "2007/08",
+            "2009/10",
+            "2009"
+          ]
+        },
+        {
+          "team": "Mumbai Indians",
+          "seasons": [
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020/21",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026"
+          ]
+        }
+      ],
+      "totalSeasons": 19
+    },
+    {
       "name": "SA Yadav",
+      "id": "271f83cd",
+      "a": [],
       "blocks": [
         {
           "team": "Mumbai Indians",
@@ -1271,13 +1416,15 @@
     },
     {
       "name": "SK Raina",
+      "id": "1dc12ab9",
+      "a": [],
       "blocks": [
         {
           "team": "Chennai Super Kings",
           "seasons": [
             "2007/08",
-            "2009/10",
             "2009",
+            "2009/10",
             "2011",
             "2012",
             "2013",
@@ -1305,12 +1452,14 @@
     },
     {
       "name": "SL Malinga",
+      "id": "a12e1d51",
+      "a": [],
       "blocks": [
         {
           "team": "Mumbai Indians",
           "seasons": [
-            "2009/10",
             "2009",
+            "2009/10",
             "2011",
             "2012",
             "2013",
@@ -1324,33 +1473,9 @@
       "totalSeasons": 9
     },
     {
-      "name": "SP Narine",
-      "blocks": [
-        {
-          "team": "Kolkata Knight Riders",
-          "seasons": [
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020/21",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-            "2025",
-            "2026"
-          ]
-        }
-      ],
-      "totalSeasons": 15
-    },
-    {
       "name": "SR Watson",
+      "id": "4329fbb5",
+      "a": [],
       "blocks": [
         {
           "team": "Rajasthan Royals",
@@ -1383,39 +1508,11 @@
       "totalSeasons": 12
     },
     {
-      "name": "SS Iyer",
-      "blocks": [
-        {
-          "team": "Delhi Capitals",
-          "seasons": [
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020/21",
-            "2021"
-          ]
-        },
-        {
-          "team": "Kolkata Knight Riders",
-          "seasons": [
-            "2022",
-            "2024"
-          ]
-        },
-        {
-          "team": "Punjab Kings",
-          "seasons": [
-            "2025",
-            "2026"
-          ]
-        }
+      "name": "Sanju Samson",
+      "id": "a4cc73aa",
+      "a": [
+        "SV Samson"
       ],
-      "totalSeasons": 11
-    },
-    {
-      "name": "SV Samson",
       "blocks": [
         {
           "team": "Rajasthan Royals",
@@ -1455,21 +1552,18 @@
       "totalSeasons": 14
     },
     {
-      "name": "Sandeep Sharma",
+      "name": "Shreyas Iyer",
+      "id": "85ec8e33",
+      "a": [
+        "SS Iyer"
+      ],
       "blocks": [
         {
-          "team": "Punjab Kings",
+          "team": "Delhi Capitals",
           "seasons": [
-            "2013",
-            "2014",
             "2015",
             "2016",
-            "2017"
-          ]
-        },
-        {
-          "team": "Sunrisers Hyderabad",
-          "seasons": [
+            "2017",
             "2018",
             "2019",
             "2020/21",
@@ -1477,25 +1571,26 @@
           ]
         },
         {
-          "team": "Punjab Kings",
+          "team": "Kolkata Knight Riders",
           "seasons": [
-            "2022"
+            "2022",
+            "2024"
           ]
         },
         {
-          "team": "Rajasthan Royals",
+          "team": "Punjab Kings",
           "seasons": [
-            "2023",
-            "2024",
             "2025",
             "2026"
           ]
         }
       ],
-      "totalSeasons": 14
+      "totalSeasons": 11
     },
     {
       "name": "Shubman Gill",
+      "id": "b4b99816",
+      "a": [],
       "blocks": [
         {
           "team": "Kolkata Knight Riders",
@@ -1520,7 +1615,41 @@
       "totalSeasons": 9
     },
     {
-      "name": "UT Yadav",
+      "name": "Sunil Narine",
+      "id": "9d430b40",
+      "a": [
+        "SP Narine"
+      ],
+      "blocks": [
+        {
+          "team": "Kolkata Knight Riders",
+          "seasons": [
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020/21",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026"
+          ]
+        }
+      ],
+      "totalSeasons": 15
+    },
+    {
+      "name": "Umesh Yadav",
+      "id": "cc1e8c68",
+      "a": [
+        "UT Yadav"
+      ],
       "blocks": [
         {
           "team": "Delhi Capitals",
@@ -1565,14 +1694,18 @@
       "totalSeasons": 14
     },
     {
-      "name": "V Kohli",
+      "name": "Virat Kohli",
+      "id": "ba607b88",
+      "a": [
+        "V Kohli"
+      ],
       "blocks": [
         {
           "team": "Royal Challengers Bengaluru",
           "seasons": [
             "2007/08",
-            "2009/10",
             "2009",
+            "2009/10",
             "2011",
             "2012",
             "2013",
@@ -1595,14 +1728,18 @@
       "totalSeasons": 19
     },
     {
-      "name": "V Sehwag",
+      "name": "Virender Sehwag",
+      "id": "8ba8195d",
+      "a": [
+        "V Sehwag"
+      ],
       "blocks": [
         {
           "team": "Delhi Capitals",
           "seasons": [
             "2007/08",
-            "2009",
             "2009/10",
+            "2009",
             "2011",
             "2012",
             "2013"
@@ -1619,14 +1756,18 @@
       "totalSeasons": 8
     },
     {
-      "name": "WP Saha",
+      "name": "Wriddhiman Saha",
+      "id": "fe11caa6",
+      "a": [
+        "WP Saha"
+      ],
       "blocks": [
         {
           "team": "Kolkata Knight Riders",
           "seasons": [
             "2007/08",
-            "2009",
-            "2009/10"
+            "2009/10",
+            "2009"
           ]
         },
         {
@@ -1668,13 +1809,15 @@
     },
     {
       "name": "YK Pathan",
+      "id": "3c6ffae8",
+      "a": [],
       "blocks": [
         {
           "team": "Rajasthan Royals",
           "seasons": [
             "2007/08",
-            "2009",
-            "2009/10"
+            "2009/10",
+            "2009"
           ]
         },
         {
@@ -1700,7 +1843,11 @@
       "totalSeasons": 12
     },
     {
-      "name": "YS Chahal",
+      "name": "Yuzvendra Chahal",
+      "id": "57ee1fde",
+      "a": [
+        "YS Chahal"
+      ],
       "blocks": [
         {
           "team": "Mumbai Indians",

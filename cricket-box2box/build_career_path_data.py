@@ -10,10 +10,10 @@ Reuses the same match-parsing pipeline as build_full_data.py
 (parse_matches(), MATCHES_DIR) over the real Cricsheet-format match data in
 cricsheet/matches/ - mirrored from the ritesh-ojha/IPL-DATASET GitHub repo
 since cricsheet.org itself returns 403 from this environment's network
-egress. Identity-duplicate merging is reimplemented here rather than
-imported: build_full_data.py's merge helpers assume set-valued player
-records (`players[full] |= players[ab]`), but this script needs to merge
-nested {team: {seasons}} maps (plus a parallel match-count tally) instead.
+egress. Player identity/display name comes from the central registry
+(build_player_registry.load_registry()) - see that module's docstring -
+rather than this script re-deriving its own name merges, so a player's name
+here always agrees with the other games.
 
 Deliberately launches with only the TOP_N most-played players rather than
 the full ~800-player pool: a career-path puzzle on someone nobody
@@ -25,7 +25,8 @@ import glob
 import json
 from collections import Counter, defaultdict
 
-from build_full_data import parse_matches, MATCHES_DIR, _is_abbreviated, _surname_of
+from build_full_data import parse_matches, MATCHES_DIR
+from build_player_registry import load_registry
 
 OUTPUT_PATH = "server/data/career-path.json"
 
@@ -65,40 +66,6 @@ def count_match_appearances():
     return counts
 
 
-def find_merges(players):
-    merges = {}
-    by_surname = defaultdict(list)
-    for name in players:
-        by_surname[_surname_of(name)].append(name)
-    for names in by_surname.values():
-        if len(names) < 2:
-            continue
-        abbrev = [n for n in names if _is_abbreviated(n)]
-        full = [n for n in names if not _is_abbreviated(n)]
-        for ab in abbrev:
-            candidates = [f for f in full if f[0].lower() == ab[0].lower()]
-            if len(candidates) == 1:
-                merges[ab] = candidates[0]
-
-    for name in list(players):
-        toks = name.replace(".", " ").split()
-        if len(toks) >= 3 and len(toks[0]) == 1 and toks[0].isalpha() and toks[0].isupper():
-            rest = " ".join(toks[1:])
-            if rest in players and rest != name and name not in merges:
-                merges[name] = rest
-    return merges
-
-
-def apply_merges(players, merges, match_counts):
-    for ab, full in merges.items():
-        if ab not in players or full not in players:
-            continue
-        for team, seasons in players[ab].items():
-            players[full].setdefault(team, set()).update(seasons)
-        del players[ab]
-        match_counts[full] = match_counts.get(full, 0) + match_counts.pop(ab, 0)
-
-
 def build_blocks(team_seasons):
     """Flatten to (season, team) pairs and walk them in chronological
     order, starting a new block whenever the team changes - this captures
@@ -121,22 +88,24 @@ def build_blocks(team_seasons):
 
 
 def build():
-    id_to_teams, id_to_name, _id_to_seasons, id_to_team_seasons = parse_matches()
+    id_to_teams, _id_to_name, _id_to_seasons, id_to_team_seasons, _votes = parse_matches()
     match_counts_by_id = count_match_appearances()
+    registry = load_registry()
 
     players = {}  # display name -> {team: set(seasons)}
     match_counts = {}  # display name -> match appearances
+    ids = {}  # display name -> registry id
+    aliases = {}  # display name -> alternate name spellings
     for pid, _teams in id_to_teams.items():
-        name = id_to_name[pid]
+        entry = registry.get(pid)
+        name = entry["name"] if entry else _id_to_name[pid]
         team_seasons = id_to_team_seasons.get(pid, {})
         dest = players.setdefault(name, {})
         for team, seasons in team_seasons.items():
             dest.setdefault(team, set()).update(seasons)
         match_counts[name] = match_counts.get(name, 0) + match_counts_by_id.get(pid, 0)
-
-    merges = find_merges(players)
-    apply_merges(players, merges, match_counts)
-    print(f"merged {len(merges)} duplicate identities")
+        ids[name] = entry["id"] if entry else None
+        aliases[name] = entry["aliases"] if entry else []
 
     candidates = []
     for name, team_seasons in players.items():
@@ -149,6 +118,8 @@ def build():
             continue
         candidates.append({
             "name": name,
+            "id": ids.get(name),
+            "a": aliases.get(name, []),
             "blocks": blocks,
             "totalSeasons": total_seasons,
             "matches": match_counts.get(name, 0),

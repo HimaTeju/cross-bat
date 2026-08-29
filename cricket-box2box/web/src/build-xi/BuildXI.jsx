@@ -111,7 +111,7 @@ export default function BuildXI() {
     if (q.length < 2) return [];
     return players
       .filter((p) => !pickedNames.has(p.name))
-      .filter((p) => p.name.toLowerCase().includes(q))
+      .filter((p) => p.name.toLowerCase().includes(q) || (p.a || []).some((a) => a.toLowerCase().includes(q)))
       .filter((p) => canAddToRole(p.role))
       .sort((a, b) => a.name.localeCompare(b.name))
       .slice(0, 8);
