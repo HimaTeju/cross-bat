@@ -18,9 +18,16 @@ const GAMES = [
     stats: "50 players · a new puzzle every day",
     needsDifficulty: false,
   },
+  {
+    to: "/target-chase",
+    title: "Target Chase",
+    blurb: "Draft a 5-player XI whose combined career IPL runs and wickets clear both targets at once.",
+    stats: "69 players · real career totals · 2008–2026",
+    needsDifficulty: false,
+  },
 ];
 
-const COMING_SOON = [{ icon: "🔒", title: "Coming soon" }];
+const COMING_SOON = [];
 
 export default function Landing() {
   const navigate = useNavigate();

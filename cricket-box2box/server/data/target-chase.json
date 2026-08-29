@@ -1,0 +1,423 @@
+{
+  "players": [
+    {
+      "name": "A Mishra",
+      "runs": 381,
+      "wickets": 174,
+      "matches": 162
+    },
+    {
+      "name": "A Nehra",
+      "runs": 41,
+      "wickets": 106,
+      "matches": 88
+    },
+    {
+      "name": "AB de Villiers",
+      "runs": 5181,
+      "wickets": 0,
+      "matches": 170
+    },
+    {
+      "name": "AD Russell",
+      "runs": 2655,
+      "wickets": 123,
+      "matches": 134
+    },
+    {
+      "name": "AM Rahane",
+      "runs": 5367,
+      "wickets": 1,
+      "matches": 197
+    },
+    {
+      "name": "AR Patel",
+      "runs": 2089,
+      "wickets": 139,
+      "matches": 177
+    },
+    {
+      "name": "AT Rayudu",
+      "runs": 4348,
+      "wickets": 0,
+      "matches": 185
+    },
+    {
+      "name": "Arshdeep Singh",
+      "runs": 32,
+      "wickets": 111,
+      "matches": 95
+    },
+    {
+      "name": "B Kumar",
+      "runs": 354,
+      "wickets": 226,
+      "matches": 206
+    },
+    {
+      "name": "BB McCullum",
+      "runs": 2882,
+      "wickets": 0,
+      "matches": 109
+    },
+    {
+      "name": "CH Gayle",
+      "runs": 4997,
+      "wickets": 18,
+      "matches": 141
+    },
+    {
+      "name": "CH Morris",
+      "runs": 618,
+      "wickets": 96,
+      "matches": 81
+    },
+    {
+      "name": "CV Varun",
+      "runs": 31,
+      "wickets": 111,
+      "matches": 94
+    },
+    {
+      "name": "DA Miller",
+      "runs": 3288,
+      "wickets": 0,
+      "matches": 143
+    },
+    {
+      "name": "DA Warner",
+      "runs": 6567,
+      "wickets": 0,
+      "matches": 184
+    },
+    {
+      "name": "DJ Bravo",
+      "runs": 1560,
+      "wickets": 183,
+      "matches": 160
+    },
+    {
+      "name": "DL Chahar",
+      "runs": 142,
+      "wickets": 96,
+      "matches": 103
+    },
+    {
+      "name": "DW Steyn",
+      "runs": 167,
+      "wickets": 97,
+      "matches": 95
+    },
+    {
+      "name": "F du Plessis",
+      "runs": 4773,
+      "wickets": 0,
+      "matches": 147
+    },
+    {
+      "name": "G Gambhir",
+      "runs": 4217,
+      "wickets": 0,
+      "matches": 151
+    },
+    {
+      "name": "HH Pandya",
+      "runs": 2964,
+      "wickets": 82,
+      "matches": 159
+    },
+    {
+      "name": "HV Patel",
+      "runs": 280,
+      "wickets": 151,
+      "matches": 122
+    },
+    {
+      "name": "Harbhajan Singh",
+      "runs": 833,
+      "wickets": 150,
+      "matches": 163
+    },
+    {
+      "name": "I Sharma",
+      "runs": 57,
+      "wickets": 96,
+      "matches": 117
+    },
+    {
+      "name": "Ishan Kishan",
+      "runs": 3600,
+      "wickets": 0,
+      "matches": 127
+    },
+    {
+      "name": "JC Buttler",
+      "runs": 4647,
+      "wickets": 0,
+      "matches": 136
+    },
+    {
+      "name": "JD Unadkat",
+      "runs": 201,
+      "wickets": 114,
+      "matches": 115
+    },
+    {
+      "name": "JJ Bumrah",
+      "runs": 75,
+      "wickets": 190,
+      "matches": 158
+    },
+    {
+      "name": "K Rabada",
+      "runs": 262,
+      "wickets": 151,
+      "matches": 101
+    },
+    {
+      "name": "KA Pollard",
+      "runs": 3437,
+      "wickets": 69,
+      "matches": 179
+    },
+    {
+      "name": "KD Karthik",
+      "runs": 4843,
+      "wickets": 0,
+      "matches": 233
+    },
+    {
+      "name": "KH Pandya",
+      "runs": 1982,
+      "wickets": 107,
+      "matches": 158
+    },
+    {
+      "name": "KL Rahul",
+      "runs": 5828,
+      "wickets": 0,
+      "matches": 149
+    },
+    {
+      "name": "Kuldeep Yadav",
+      "runs": 210,
+      "wickets": 112,
+      "matches": 110
+    },
+    {
+      "name": "MK Pandey",
+      "runs": 4021,
+      "wickets": 0,
+      "matches": 163
+    },
+    {
+      "name": "MM Sharma",
+      "runs": 125,
+      "wickets": 134,
+      "matches": 120
+    },
+    {
+      "name": "MS Dhoni",
+      "runs": 5439,
+      "wickets": 0,
+      "matches": 241
+    },
+    {
+      "name": "Mohammed Shami",
+      "runs": 115,
+      "wickets": 145,
+      "matches": 132
+    },
+    {
+      "name": "Mohammed Siraj",
+      "runs": 117,
+      "wickets": 128,
+      "matches": 125
+    },
+    {
+      "name": "N Rana",
+      "runs": 3078,
+      "wickets": 10,
+      "matches": 123
+    },
+    {
+      "name": "PA Patel",
+      "runs": 2848,
+      "wickets": 0,
+      "matches": 136
+    },
+    {
+      "name": "PP Chawla",
+      "runs": 624,
+      "wickets": 192,
+      "matches": 192
+    },
+    {
+      "name": "Q de Kock",
+      "runs": 3444,
+      "wickets": 0,
+      "matches": 118
+    },
+    {
+      "name": "R Ashwin",
+      "runs": 833,
+      "wickets": 187,
+      "matches": 217
+    },
+    {
+      "name": "R Vinay Kumar",
+      "runs": 310,
+      "wickets": 105,
+      "matches": 104
+    },
+    {
+      "name": "RA Jadeja",
+      "runs": 3526,
+      "wickets": 180,
+      "matches": 259
+    },
+    {
+      "name": "RD Gaikwad",
+      "runs": 2839,
+      "wickets": 0,
+      "matches": 84
+    },
+    {
+      "name": "RG Sharma",
+      "runs": 7331,
+      "wickets": 15,
+      "matches": 275
+    },
+    {
+      "name": "RR Pant",
+      "runs": 3879,
+      "wickets": 0,
+      "matches": 136
+    },
+    {
+      "name": "RV Uthappa",
+      "runs": 4954,
+      "wickets": 0,
+      "matches": 197
+    },
+    {
+      "name": "Rashid Khan",
+      "runs": 635,
+      "wickets": 179,
+      "matches": 153
+    },
+    {
+      "name": "S Dhawan",
+      "runs": 6769,
+      "wickets": 4,
+      "matches": 221
+    },
+    {
+      "name": "SA Yadav",
+      "runs": 4581,
+      "wickets": 0,
+      "matches": 165
+    },
+    {
+      "name": "SK Raina",
+      "runs": 5536,
+      "wickets": 25,
+      "matches": 200
+    },
+    {
+      "name": "SL Malinga",
+      "runs": 88,
+      "wickets": 170,
+      "matches": 122
+    },
+    {
+      "name": "SN Thakur",
+      "runs": 349,
+      "wickets": 119,
+      "matches": 111
+    },
+    {
+      "name": "SP Narine",
+      "runs": 1820,
+      "wickets": 209,
+      "matches": 201
+    },
+    {
+      "name": "SR Watson",
+      "runs": 3880,
+      "wickets": 92,
+      "matches": 145
+    },
+    {
+      "name": "SS Iyer",
+      "runs": 4233,
+      "wickets": 0,
+      "matches": 144
+    },
+    {
+      "name": "SV Samson",
+      "runs": 5181,
+      "wickets": 0,
+      "matches": 185
+    },
+    {
+      "name": "Sandeep Sharma",
+      "runs": 60,
+      "wickets": 151,
+      "matches": 142
+    },
+    {
+      "name": "Shubman Gill",
+      "runs": 4598,
+      "wickets": 0,
+      "matches": 130
+    },
+    {
+      "name": "TA Boult",
+      "runs": 93,
+      "wickets": 145,
+      "matches": 124
+    },
+    {
+      "name": "UT Yadav",
+      "runs": 208,
+      "wickets": 144,
+      "matches": 147
+    },
+    {
+      "name": "V Kohli",
+      "runs": 9346,
+      "wickets": 4,
+      "matches": 276
+    },
+    {
+      "name": "WP Saha",
+      "runs": 2934,
+      "wickets": 0,
+      "matches": 143
+    },
+    {
+      "name": "YK Pathan",
+      "runs": 3222,
+      "wickets": 42,
+      "matches": 161
+    },
+    {
+      "name": "YS Chahal",
+      "runs": 37,
+      "wickets": 233,
+      "matches": 184
+    },
+    {
+      "name": "Z Khan",
+      "runs": 117,
+      "wickets": 102,
+      "matches": 99
+    }
+  ],
+  "calibration": {
+    "squadSize": 5,
+    "maxRuns": 35841,
+    "maxWickets": 1050
+  }
+}
