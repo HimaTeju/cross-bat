@@ -153,6 +153,21 @@
   color: var(--parchment-dim);
 }
 
+/* Career Path dropped its own share feature (and this rule along with it)
+   in a separate visual redesign, but Build Your XI still shows a share box
+   on completion - kept here so it isn't left unstyled. */
+.career-share {
+  display: inline-block;
+  text-align: left;
+  background: var(--pitch);
+  border: 1px solid var(--pitch-line);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
 /* ---------- Shared player-pool list (also used by the search/add flow) ---------- */
 
 .target-pool-controls {
