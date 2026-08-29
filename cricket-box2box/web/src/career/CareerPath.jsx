@@ -213,8 +213,11 @@ export default function CareerPath() {
           </p>
           <div className="career-result-actions">
             <button className="btn-primary" onClick={startNewGame}>
-              Play another
+              Play Again
             </button>
+            <Link className="btn-ghost" to="/">
+              Other Games
+            </Link>
           </div>
         </div>
       )}

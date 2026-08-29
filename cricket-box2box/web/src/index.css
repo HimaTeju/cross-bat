@@ -484,15 +484,15 @@ body {
   align-items: flex-start;
   gap: 0.15rem;
   text-align: left;
-  background: #fff;
-  border: 2px solid var(--parchment-dim);
+  background: var(--parchment-dim);
+  border: 2px solid rgba(28, 26, 20, 0.12);
   border-radius: 6px;
   padding: 0.6rem 0.85rem;
   cursor: pointer;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
 .difficulty-option:hover { border-color: var(--gold); transform: translateY(-1px); }
-.difficulty-option.active { border-color: var(--gold); background: rgba(201, 154, 59, 0.12); }
+.difficulty-option.active { border-color: var(--gold); background: rgba(201, 154, 59, 0.18); }
 
 .difficulty-tier {
   font-family: 'Archivo Narrow', sans-serif;

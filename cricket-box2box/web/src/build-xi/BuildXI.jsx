@@ -7,7 +7,7 @@ import { players, SLOTS, SQUAD_SIZE, CATEGORIES, calibration, randomCategory } f
 
 const ROLE_ORDER = ["wicketkeeper", "batter", "allrounder", "bowler"];
 const ROLE_LABELS = {
-  wicketkeeper: "Wicketkeeper",
+  wicketkeeper: "Wicketkeepers",
   batter: "Batters",
   allrounder: "All-rounders",
   bowler: "Bowlers",
@@ -26,9 +26,7 @@ export default function BuildXI() {
   const [spinning, setSpinning] = useState(false);
   const [spinLabel, setSpinLabel] = useState(null);
   const [squad, setSquad] = useState([]);
-  const [activeRole, setActiveRole] = useState("wicketkeeper");
   const [query, setQuery] = useState("");
-  const [copied, setCopied] = useState(false);
   const [confirmNew, setConfirmNew] = useState(false);
 
   useEffect(() => {
@@ -40,9 +38,7 @@ export default function BuildXI() {
     setSquad([]);
     setPhase("spin");
     setSpinLabel(null);
-    setActiveRole("wicketkeeper");
     setQuery("");
-    setCopied(false);
   }
 
   function requestNewGame() {
@@ -110,28 +106,23 @@ export default function BuildXI() {
 
   const pickedNames = useMemo(() => new Set(squad.map((p) => p.name)), [squad]);
 
-  const pool = useMemo(() => {
+  const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
+    if (q.length < 2) return [];
     return players
-      .filter((p) => p.role === activeRole)
-      .filter((p) => !q || p.name.toLowerCase().includes(q))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, [activeRole, query]);
+      .filter((p) => !pickedNames.has(p.name))
+      .filter((p) => p.name.toLowerCase().includes(q))
+      .filter((p) => canAddToRole(p.role))
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .slice(0, 8);
+  }, [query, pickedNames, squad]);
+
+  function pickSuggestion(p) {
+    addPlayer(p);
+    setQuery("");
+  }
 
   const total = useMemo(() => squad.reduce((t, p) => t + p[category.key], 0), [squad, category]);
-
-  const shareText = useMemo(() => {
-    if (phase !== "done") return null;
-    return `🏏 Cross Bat Build Your XI\nCategory: ${category.label}\nTotal: ${total.toLocaleString()} ${category.unit}`;
-  }, [phase, category, total]);
-
-  function copyShare() {
-    if (!shareText) return;
-    navigator.clipboard?.writeText(shareText).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    });
-  }
 
   return (
     <div className="pitch buildxi-page">
@@ -165,48 +156,54 @@ export default function BuildXI() {
             <span className="buildxi-category-value">{category.label}</span>
           </div>
 
+          <div className="buildxi-progress">{totalPicked}/{SQUAD_SIZE} picked</div>
+
+          <div className="buildxi-field">
+            {ROLE_ORDER.map((role) => (
+              <div className="buildxi-row" key={role}>
+                <div className="buildxi-row-header">
+                  <span>{ROLE_LABELS[role]}</span>
+                  <span className="buildxi-row-count">
+                    {counts[role] || 0}/{SLOTS[role].max}
+                  </span>
+                </div>
+                <div className="buildxi-row-players">
+                  {squad
+                    .filter((p) => p.role === role)
+                    .map((p) => {
+                      const style = FRANCHISE_STYLE[p.team];
+                      return (
+                        <div
+                          key={p.name}
+                          className="buildxi-slot filled"
+                          style={style ? { background: style.bg, color: style.fg } : undefined}
+                        >
+                          <span className="buildxi-slot-name">{p.name}</span>
+                          {phase === "building" && (
+                            <button
+                              className="buildxi-slot-remove"
+                              onClick={() => removePlayer(p.name)}
+                              aria-label={`Remove ${p.name}`}
+                            >
+                              ×
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  {phase === "building" &&
+                    Array.from({ length: Math.max(0, SLOTS[role].min - (counts[role] || 0)) }).map((_, i) => (
+                      <div key={`empty-${role}-${i}`} className="buildxi-slot empty">
+                        +
+                      </div>
+                    ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
           {phase === "building" && (
             <>
-              <div className="buildxi-roles">
-                {ROLE_ORDER.map((role) => (
-                  <button
-                    key={role}
-                    className={`buildxi-role-tab${activeRole === role ? " active" : ""}`}
-                    onClick={() => setActiveRole(role)}
-                  >
-                    {ROLE_LABELS[role]}
-                    <span className="buildxi-role-count">
-                      {counts[role] || 0}/{SLOTS[role].max}
-                    </span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="buildxi-progress">{totalPicked}/{SQUAD_SIZE} picked</div>
-
-              <ul className="buildxi-squad">
-                {squad.map((p) => {
-                  const style = FRANCHISE_STYLE[p.team];
-                  return (
-                    <li
-                      key={p.name}
-                      className="buildxi-chip"
-                      style={style ? { background: style.bg, color: style.fg } : undefined}
-                    >
-                      {style?.logo && <img src={style.logo} alt="" className="buildxi-chip-logo" />}
-                      <span>{p.name}</span>
-                      <button
-                        className="buildxi-chip-remove"
-                        onClick={() => removePlayer(p.name)}
-                        aria-label={`Remove ${p.name}`}
-                      >
-                        ×
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-
               {squad.length > 0 && (
                 <div className="target-reset">
                   <button className="btn-ghost" onClick={() => setSquad([])}>
@@ -215,31 +212,27 @@ export default function BuildXI() {
                 </div>
               )}
 
-              <div className="target-pool-controls">
+              <div className="buildxi-search-box">
                 <input
                   type="text"
-                  placeholder={`Search ${ROLE_LABELS[activeRole].toLowerCase()}…`}
+                  placeholder="Search a player to add…"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                 />
+                {suggestions.length > 0 && (
+                  <ul className="suggestions">
+                    {suggestions.map((p) => (
+                      <li key={p.name} onClick={() => pickSuggestion(p)}>
+                        {p.name}
+                        <span className="buildxi-suggestion-role">{ROLE_LABELS[p.role]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {query.trim().length >= 2 && suggestions.length === 0 && (
+                  <p className="buildxi-search-empty">No players match.</p>
+                )}
               </div>
-              <ul className="target-pool">
-                {pool.map((p) => {
-                  const picked = pickedNames.has(p.name);
-                  const style = FRANCHISE_STYLE[p.team];
-                  const addable = !picked && canAddToRole(p.role);
-                  return (
-                    <li key={p.name} className={`target-pool-item${picked ? " picked" : ""}`}>
-                      {style?.logo && <img src={style.logo} alt="" className="target-pool-logo" />}
-                      <span className="target-pool-name">{p.name}</span>
-                      <button className="btn-ghost" disabled={!addable} onClick={() => addPlayer(p)}>
-                        {picked ? "Added" : "Add"}
-                      </button>
-                    </li>
-                  );
-                })}
-                {pool.length === 0 && <li className="target-pool-empty">No players match.</li>}
-              </ul>
             </>
           )}
 
@@ -253,14 +246,13 @@ export default function BuildXI() {
                 Best possible under these role rules: {calibration.bestPossible[category.key].toLocaleString()}{" "}
                 {category.unit}
               </p>
-              <pre className="career-share">{shareText}</pre>
               <div className="career-result-actions">
-                <button className="btn-primary" onClick={copyShare}>
-                  {copied ? "Copied!" : "Copy result"}
+                <button className="btn-primary" onClick={startNewGame}>
+                  Play Again
                 </button>
-                <button className="btn-ghost" onClick={startNewGame}>
-                  Play another
-                </button>
+                <Link className="btn-ghost" to="/">
+                  Other Games
+                </Link>
               </div>
             </div>
           )}

@@ -196,9 +196,7 @@ export default function App() {
         />
       )}
 
-      {showWinModal && (
-        <WinModal onPlayAgain={loadGrid} onClose={() => setShowWinModal(false)} />
-      )}
+      {showWinModal && <WinModal onPlayAgain={loadGrid} />}
 
       {showDifficultyDialog && (
         <DifficultyDialog
