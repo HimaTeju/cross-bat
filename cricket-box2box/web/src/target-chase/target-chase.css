@@ -153,12 +153,6 @@
   line-height: 1.1;
 }
 
-.target-slot-stats {
-  font-size: 0.55rem;
-  opacity: 0.85;
-  font-family: 'Archivo Narrow', sans-serif;
-}
-
 .target-slot-remove {
   position: absolute;
   top: -0.2rem;
@@ -210,16 +204,6 @@
 }
 .target-pool-controls input:focus { outline: none; border-color: var(--gold); }
 
-.target-sort {
-  display: flex;
-  gap: 0.4rem;
-}
-.target-sort .btn-primary,
-.target-sort .btn-ghost {
-  padding: 0.4rem 0.7rem;
-  font-size: 0.72rem;
-}
-
 .target-pool {
   list-style: none;
   margin: 0;
@@ -251,12 +235,6 @@
   flex: 1;
   font-weight: 700;
   font-size: 0.88rem;
-}
-
-.target-pool-stats {
-  font-size: 0.78rem;
-  color: var(--parchment-dim);
-  white-space: nowrap;
 }
 
 .target-pool-item .btn-ghost {

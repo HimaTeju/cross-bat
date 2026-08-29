@@ -46,9 +46,6 @@ function Ground({ squad, squadSize, status, gameLabel, onRemove }) {
                 )}
                 {style?.logo && <img src={style.logo} alt="" className="target-slot-logo" />}
                 <span className="target-slot-name">{p.name}</span>
-                <span className="target-slot-stats">
-                  {p.runs.toLocaleString()}R · {p.wickets}W
-                </span>
               </div>
             ) : (
               <div className="target-slot-empty">+</div>
@@ -70,7 +67,6 @@ export default function TargetChase() {
   const [target, setTarget] = useState(() => dailyTarget());
   const [squad, setSquad] = useState([]);
   const [status, setStatus] = useState("playing"); // "playing" | "won" | "lost"
-  const [sortBy, setSortBy] = useState("runs"); // "runs" | "wickets" | "name"
   const [query, setQuery] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -127,12 +123,14 @@ export default function TargetChase() {
 
   const gameLabel = mode === "daily" ? `GAME #${target.gameNumber ?? dailyGameNumber()}` : "PRACTICE";
 
+  // Sorted alphabetically only - sorting by runs/wickets would leak the
+  // same numbers the pool is deliberately not showing per player.
   const pool = useMemo(() => {
     const q = query.trim().toLowerCase();
     const list = q ? players.filter((p) => p.name.toLowerCase().includes(q)) : players.slice();
-    list.sort((a, b) => (sortBy === "name" ? a.name.localeCompare(b.name) : b[sortBy] - a[sortBy]));
+    list.sort((a, b) => a.name.localeCompare(b.name));
     return list;
-  }, [query, sortBy]);
+  }, [query]);
 
   const shareText = useMemo(() => {
     if (status === "playing") return null;
@@ -214,17 +212,6 @@ export default function TargetChase() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <div className="target-sort">
-              <button className={sortBy === "runs" ? "btn-primary" : "btn-ghost"} onClick={() => setSortBy("runs")}>
-                Runs
-              </button>
-              <button className={sortBy === "wickets" ? "btn-primary" : "btn-ghost"} onClick={() => setSortBy("wickets")}>
-                Wickets
-              </button>
-              <button className={sortBy === "name" ? "btn-primary" : "btn-ghost"} onClick={() => setSortBy("name")}>
-                A–Z
-              </button>
-            </div>
           </div>
           <ul className="target-pool">
             {pool.map((p) => {
@@ -235,9 +222,6 @@ export default function TargetChase() {
                 <li key={p.name} className={`target-pool-item${picked ? " picked" : ""}`}>
                   {style?.logo && <img src={style.logo} alt="" className="target-pool-logo" />}
                   <span className="target-pool-name">{p.name}</span>
-                  <span className="target-pool-stats">
-                    {p.runs.toLocaleString()}R · {p.wickets}W
-                  </span>
                   <button className="btn-ghost" disabled={picked || full} onClick={() => addPlayer(p)}>
                     {picked ? "Added" : "Add"}
                   </button>
