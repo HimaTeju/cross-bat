@@ -4,13 +4,6 @@
   padding: 2rem 1.25rem 3rem;
 }
 
-.career-modes {
-  display: flex;
-  gap: 0.6rem;
-  justify-content: center;
-  margin: 1.25rem 0;
-}
-
 .career-chain {
   display: flex;
   flex-wrap: wrap;

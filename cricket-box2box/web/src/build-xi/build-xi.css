@@ -1,0 +1,241 @@
+.buildxi-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.buildxi-spin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2.5rem 1rem;
+}
+
+.buildxi-reel {
+  min-width: 260px;
+  text-align: center;
+  font-family: 'Teko', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.03em;
+  color: var(--parchment);
+  background: var(--pitch-deep);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+}
+
+.buildxi-reel.spinning {
+  color: var(--gold-bright);
+  animation: buildxi-flicker 0.08s linear infinite;
+}
+
+@keyframes buildxi-flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.buildxi-category {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.buildxi-category-label {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+}
+
+.buildxi-category-value {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.8rem;
+  color: var(--gold-bright);
+}
+
+.buildxi-roles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.buildxi-role-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.5rem 0.3rem;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+  background: var(--pitch-deep);
+  border: 2px solid var(--pitch-line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buildxi-role-tab.active {
+  color: var(--pitch-deep);
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.buildxi-role-count {
+  font-family: 'Teko', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.buildxi-progress {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--parchment-dim);
+  margin-bottom: 0.6rem;
+}
+
+.buildxi-squad {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  min-height: 2.2rem;
+}
+
+.buildxi-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 1.3rem 0.3rem 0.5rem;
+  border-radius: 999px;
+  background: var(--parchment);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.buildxi-chip-logo {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+}
+
+.buildxi-chip-remove {
+  position: absolute;
+  right: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--crimson);
+  color: var(--parchment);
+  font-size: 0.65rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.buildxi-benchmark {
+  font-size: 0.8rem;
+  color: var(--parchment-dim);
+}
+
+/* Career Path dropped its own share feature (and this rule along with it)
+   in a separate visual redesign, but Build Your XI still shows a share box
+   on completion - kept here so it isn't left unstyled. */
+.career-share {
+  display: inline-block;
+  text-align: left;
+  background: var(--pitch);
+  border: 1px solid var(--pitch-line);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+/* ---------- Shared player-pool list (also used by the search/add flow) ---------- */
+
+.target-pool-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.target-pool-controls input {
+  flex: 1;
+  min-width: 160px;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--pitch-line);
+  border-radius: 6px;
+  background: var(--pitch-deep);
+  color: var(--parchment);
+}
+.target-pool-controls input:focus { outline: none; border-color: var(--gold); }
+
+.target-pool {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 420px;
+  overflow-y: auto;
+  border: 1px solid var(--pitch-line);
+  border-radius: 8px;
+}
+
+.target-pool-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.85rem;
+  border-top: 1px solid var(--pitch-line);
+}
+.target-pool-item:first-child { border-top: none; }
+.target-pool-item.picked { opacity: 0.45; }
+
+.target-pool-logo {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.target-pool-name {
+  flex: 1;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.target-pool-item .btn-ghost {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.72rem;
+}
+
+.target-pool-empty {
+  padding: 1rem;
+  text-align: center;
+  color: var(--parchment-dim);
+  font-style: italic;
+}
+
+.target-reset {
+  margin: 0.5rem 0 0.75rem;
+  text-align: center;
+}

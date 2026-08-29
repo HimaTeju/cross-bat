@@ -18,9 +18,16 @@ const GAMES = [
     stats: "50 players · a new puzzle every day",
     needsDifficulty: false,
   },
+  {
+    to: "/build-xi",
+    title: "Build Your XI",
+    blurb: "Spin for a stat category — Most Runs, Wickets, Caps, or IPL Trophies — then draft a role-balanced XI to maximize it.",
+    stats: "88 players · 4 categories · 2008–2026",
+    needsDifficulty: false,
+  },
 ];
 
-const COMING_SOON = [{ icon: "🔒", title: "Coming soon" }];
+const COMING_SOON = [];
 
 export default function Landing() {
   const navigate = useNavigate();

@@ -1,0 +1,823 @@
+{
+  "players": [
+    {
+      "name": "A Mishra",
+      "team": "Lucknow Super Giants",
+      "role": "bowler",
+      "runs": 381,
+      "wickets": 174,
+      "matches": 162,
+      "trophies": 0
+    },
+    {
+      "name": "A Nehra",
+      "team": "Sunrisers Hyderabad",
+      "role": "bowler",
+      "runs": 41,
+      "wickets": 106,
+      "matches": 88,
+      "trophies": 1
+    },
+    {
+      "name": "AB de Villiers",
+      "team": "Royal Challengers Bengaluru",
+      "role": "wicketkeeper",
+      "runs": 5181,
+      "wickets": 0,
+      "matches": 170,
+      "trophies": 0
+    },
+    {
+      "name": "AD Russell",
+      "team": "Kolkata Knight Riders",
+      "role": "allrounder",
+      "runs": 2655,
+      "wickets": 123,
+      "matches": 134,
+      "trophies": 2
+    },
+    {
+      "name": "AM Rahane",
+      "team": "Kolkata Knight Riders",
+      "role": "batter",
+      "runs": 5367,
+      "wickets": 1,
+      "matches": 197,
+      "trophies": 1
+    },
+    {
+      "name": "AR Patel",
+      "team": "Delhi Capitals",
+      "role": "allrounder",
+      "runs": 2089,
+      "wickets": 139,
+      "matches": 177,
+      "trophies": 0
+    },
+    {
+      "name": "AT Rayudu",
+      "team": "Chennai Super Kings",
+      "role": "batter",
+      "runs": 4348,
+      "wickets": 0,
+      "matches": 185,
+      "trophies": 6
+    },
+    {
+      "name": "Arshdeep Singh",
+      "team": "Punjab Kings",
+      "role": "bowler",
+      "runs": 32,
+      "wickets": 111,
+      "matches": 95,
+      "trophies": 0
+    },
+    {
+      "name": "Avesh Khan",
+      "team": "Lucknow Super Giants",
+      "role": "bowler",
+      "runs": 68,
+      "wickets": 93,
+      "matches": 82,
+      "trophies": 0
+    },
+    {
+      "name": "B Kumar",
+      "team": "Royal Challengers Bengaluru",
+      "role": "bowler",
+      "runs": 354,
+      "wickets": 226,
+      "matches": 206,
+      "trophies": 3
+    },
+    {
+      "name": "B Sai Sudharsan",
+      "team": "Gujarat Titans",
+      "role": "batter",
+      "runs": 2515,
+      "wickets": 0,
+      "matches": 57,
+      "trophies": 1
+    },
+    {
+      "name": "BB McCullum",
+      "team": "Royal Challengers Bengaluru",
+      "role": "wicketkeeper",
+      "runs": 2882,
+      "wickets": 0,
+      "matches": 109,
+      "trophies": 1
+    },
+    {
+      "name": "CH Gayle",
+      "team": "Punjab Kings",
+      "role": "batter",
+      "runs": 4997,
+      "wickets": 18,
+      "matches": 141,
+      "trophies": 0
+    },
+    {
+      "name": "CH Morris",
+      "team": "Rajasthan Royals",
+      "role": "bowler",
+      "runs": 618,
+      "wickets": 96,
+      "matches": 81,
+      "trophies": 0
+    },
+    {
+      "name": "CV Varun",
+      "team": "Kolkata Knight Riders",
+      "role": "bowler",
+      "runs": 31,
+      "wickets": 111,
+      "matches": 94,
+      "trophies": 1
+    },
+    {
+      "name": "DA Miller",
+      "team": "Delhi Capitals",
+      "role": "batter",
+      "runs": 3288,
+      "wickets": 0,
+      "matches": 143,
+      "trophies": 1
+    },
+    {
+      "name": "DA Warner",
+      "team": "Delhi Capitals",
+      "role": "batter",
+      "runs": 6567,
+      "wickets": 0,
+      "matches": 184,
+      "trophies": 1
+    },
+    {
+      "name": "DJ Bravo",
+      "team": "Chennai Super Kings",
+      "role": "allrounder",
+      "runs": 1560,
+      "wickets": 183,
+      "matches": 160,
+      "trophies": 3
+    },
+    {
+      "name": "DL Chahar",
+      "team": "Mumbai Indians",
+      "role": "bowler",
+      "runs": 142,
+      "wickets": 96,
+      "matches": 103,
+      "trophies": 3
+    },
+    {
+      "name": "DW Steyn",
+      "team": "Royal Challengers Bengaluru",
+      "role": "bowler",
+      "runs": 167,
+      "wickets": 97,
+      "matches": 95,
+      "trophies": 0
+    },
+    {
+      "name": "F du Plessis",
+      "team": "Delhi Capitals",
+      "role": "batter",
+      "runs": 4773,
+      "wickets": 0,
+      "matches": 147,
+      "trophies": 2
+    },
+    {
+      "name": "G Gambhir",
+      "team": "Delhi Capitals",
+      "role": "batter",
+      "runs": 4217,
+      "wickets": 0,
+      "matches": 151,
+      "trophies": 2
+    },
+    {
+      "name": "GJ Maxwell",
+      "team": "Punjab Kings",
+      "role": "batter",
+      "runs": 2820,
+      "wickets": 41,
+      "matches": 140,
+      "trophies": 1
+    },
+    {
+      "name": "HH Pandya",
+      "team": "Mumbai Indians",
+      "role": "allrounder",
+      "runs": 2964,
+      "wickets": 82,
+      "matches": 159,
+      "trophies": 5
+    },
+    {
+      "name": "HV Patel",
+      "team": "Sunrisers Hyderabad",
+      "role": "bowler",
+      "runs": 280,
+      "wickets": 151,
+      "matches": 122,
+      "trophies": 0
+    },
+    {
+      "name": "Harbhajan Singh",
+      "team": "Kolkata Knight Riders",
+      "role": "bowler",
+      "runs": 833,
+      "wickets": 150,
+      "matches": 163,
+      "trophies": 4
+    },
+    {
+      "name": "I Sharma",
+      "team": "Gujarat Titans",
+      "role": "bowler",
+      "runs": 57,
+      "wickets": 96,
+      "matches": 117,
+      "trophies": 0
+    },
+    {
+      "name": "IK Pathan",
+      "team": "Gujarat Lions",
+      "role": "allrounder",
+      "runs": 1150,
+      "wickets": 80,
+      "matches": 102,
+      "trophies": 0
+    },
+    {
+      "name": "Ishan Kishan",
+      "team": "Sunrisers Hyderabad",
+      "role": "wicketkeeper",
+      "runs": 3600,
+      "wickets": 0,
+      "matches": 127,
+      "trophies": 2
+    },
+    {
+      "name": "JA Morkel",
+      "team": "Rising Pune Supergiant",
+      "role": "allrounder",
+      "runs": 975,
+      "wickets": 85,
+      "matches": 90,
+      "trophies": 1
+    },
+    {
+      "name": "JC Buttler",
+      "team": "Gujarat Titans",
+      "role": "batter",
+      "runs": 4647,
+      "wickets": 0,
+      "matches": 136,
+      "trophies": 1
+    },
+    {
+      "name": "JD Unadkat",
+      "team": "Sunrisers Hyderabad",
+      "role": "bowler",
+      "runs": 201,
+      "wickets": 114,
+      "matches": 115,
+      "trophies": 1
+    },
+    {
+      "name": "JH Kallis",
+      "team": "Kolkata Knight Riders",
+      "role": "allrounder",
+      "runs": 2427,
+      "wickets": 65,
+      "matches": 98,
+      "trophies": 2
+    },
+    {
+      "name": "JJ Bumrah",
+      "team": "Mumbai Indians",
+      "role": "bowler",
+      "runs": 75,
+      "wickets": 190,
+      "matches": 158,
+      "trophies": 5
+    },
+    {
+      "name": "K Rabada",
+      "team": "Gujarat Titans",
+      "role": "bowler",
+      "runs": 262,
+      "wickets": 151,
+      "matches": 101,
+      "trophies": 0
+    },
+    {
+      "name": "KA Pollard",
+      "team": "Mumbai Indians",
+      "role": "batter",
+      "runs": 3437,
+      "wickets": 69,
+      "matches": 179,
+      "trophies": 5
+    },
+    {
+      "name": "KD Karthik",
+      "team": "Royal Challengers Bengaluru",
+      "role": "wicketkeeper",
+      "runs": 4843,
+      "wickets": 0,
+      "matches": 233,
+      "trophies": 1
+    },
+    {
+      "name": "KH Pandya",
+      "team": "Royal Challengers Bengaluru",
+      "role": "allrounder",
+      "runs": 1982,
+      "wickets": 107,
+      "matches": 158,
+      "trophies": 5
+    },
+    {
+      "name": "KL Rahul",
+      "team": "Delhi Capitals",
+      "role": "wicketkeeper",
+      "runs": 5828,
+      "wickets": 0,
+      "matches": 149,
+      "trophies": 0
+    },
+    {
+      "name": "Kuldeep Yadav",
+      "team": "Delhi Capitals",
+      "role": "bowler",
+      "runs": 210,
+      "wickets": 112,
+      "matches": 110,
+      "trophies": 0
+    },
+    {
+      "name": "M Vijay",
+      "team": "Chennai Super Kings",
+      "role": "batter",
+      "runs": 2619,
+      "wickets": 0,
+      "matches": 105,
+      "trophies": 2
+    },
+    {
+      "name": "MA Agarwal",
+      "team": "Royal Challengers Bengaluru",
+      "role": "batter",
+      "runs": 2764,
+      "wickets": 0,
+      "matches": 125,
+      "trophies": 1
+    },
+    {
+      "name": "MK Pandey",
+      "team": "Kolkata Knight Riders",
+      "role": "batter",
+      "runs": 4021,
+      "wickets": 0,
+      "matches": 163,
+      "trophies": 2
+    },
+    {
+      "name": "MM Ali",
+      "team": "Kolkata Knight Riders",
+      "role": "allrounder",
+      "runs": 1167,
+      "wickets": 41,
+      "matches": 69,
+      "trophies": 2
+    },
+    {
+      "name": "MM Sharma",
+      "team": "Delhi Capitals",
+      "role": "bowler",
+      "runs": 125,
+      "wickets": 134,
+      "matches": 120,
+      "trophies": 0
+    },
+    {
+      "name": "MR Marsh",
+      "team": "Lucknow Super Giants",
+      "role": "allrounder",
+      "runs": 1855,
+      "wickets": 37,
+      "matches": 68,
+      "trophies": 1
+    },
+    {
+      "name": "MS Dhoni",
+      "team": "Chennai Super Kings",
+      "role": "wicketkeeper",
+      "runs": 5439,
+      "wickets": 0,
+      "matches": 241,
+      "trophies": 4
+    },
+    {
+      "name": "Mohammed Shami",
+      "team": "Lucknow Super Giants",
+      "role": "bowler",
+      "runs": 115,
+      "wickets": 145,
+      "matches": 132,
+      "trophies": 1
+    },
+    {
+      "name": "Mohammed Siraj",
+      "team": "Gujarat Titans",
+      "role": "bowler",
+      "runs": 117,
+      "wickets": 128,
+      "matches": 125,
+      "trophies": 0
+    },
+    {
+      "name": "N Pooran",
+      "team": "Lucknow Super Giants",
+      "role": "batter",
+      "runs": 2527,
+      "wickets": 0,
+      "matches": 100,
+      "trophies": 0
+    },
+    {
+      "name": "N Rana",
+      "team": "Delhi Capitals",
+      "role": "batter",
+      "runs": 3078,
+      "wickets": 10,
+      "matches": 123,
+      "trophies": 2
+    },
+    {
+      "name": "PA Patel",
+      "team": "Royal Challengers Bengaluru",
+      "role": "wicketkeeper",
+      "runs": 2848,
+      "wickets": 0,
+      "matches": 136,
+      "trophies": 2
+    },
+    {
+      "name": "PJ Cummins",
+      "team": "Sunrisers Hyderabad",
+      "role": "allrounder",
+      "runs": 642,
+      "wickets": 87,
+      "matches": 80,
+      "trophies": 1
+    },
+    {
+      "name": "PP Chawla",
+      "team": "Mumbai Indians",
+      "role": "bowler",
+      "runs": 624,
+      "wickets": 192,
+      "matches": 192,
+      "trophies": 1
+    },
+    {
+      "name": "Q de Kock",
+      "team": "Mumbai Indians",
+      "role": "wicketkeeper",
+      "runs": 3444,
+      "wickets": 0,
+      "matches": 118,
+      "trophies": 2
+    },
+    {
+      "name": "R Ashwin",
+      "team": "Chennai Super Kings",
+      "role": "bowler",
+      "runs": 833,
+      "wickets": 187,
+      "matches": 217,
+      "trophies": 1
+    },
+    {
+      "name": "R Vinay Kumar",
+      "team": "Kolkata Knight Riders",
+      "role": "bowler",
+      "runs": 310,
+      "wickets": 105,
+      "matches": 104,
+      "trophies": 3
+    },
+    {
+      "name": "RA Jadeja",
+      "team": "Rajasthan Royals",
+      "role": "allrounder",
+      "runs": 3526,
+      "wickets": 180,
+      "matches": 259,
+      "trophies": 3
+    },
+    {
+      "name": "RD Gaikwad",
+      "team": "Chennai Super Kings",
+      "role": "batter",
+      "runs": 2839,
+      "wickets": 0,
+      "matches": 84,
+      "trophies": 2
+    },
+    {
+      "name": "RG Sharma",
+      "team": "Mumbai Indians",
+      "role": "batter",
+      "runs": 7331,
+      "wickets": 15,
+      "matches": 275,
+      "trophies": 6
+    },
+    {
+      "name": "RR Pant",
+      "team": "Lucknow Super Giants",
+      "role": "wicketkeeper",
+      "runs": 3879,
+      "wickets": 0,
+      "matches": 136,
+      "trophies": 0
+    },
+    {
+      "name": "RV Uthappa",
+      "team": "Chennai Super Kings",
+      "role": "wicketkeeper",
+      "runs": 4954,
+      "wickets": 0,
+      "matches": 197,
+      "trophies": 2
+    },
+    {
+      "name": "Rashid Khan",
+      "team": "Gujarat Titans",
+      "role": "bowler",
+      "runs": 635,
+      "wickets": 179,
+      "matches": 153,
+      "trophies": 1
+    },
+    {
+      "name": "S Dhawan",
+      "team": "Punjab Kings",
+      "role": "batter",
+      "runs": 6769,
+      "wickets": 4,
+      "matches": 221,
+      "trophies": 1
+    },
+    {
+      "name": "SA Yadav",
+      "team": "Mumbai Indians",
+      "role": "batter",
+      "runs": 4581,
+      "wickets": 0,
+      "matches": 165,
+      "trophies": 3
+    },
+    {
+      "name": "SE Marsh",
+      "team": "Punjab Kings",
+      "role": "batter",
+      "runs": 2489,
+      "wickets": 0,
+      "matches": 69,
+      "trophies": 0
+    },
+    {
+      "name": "SK Raina",
+      "team": "Chennai Super Kings",
+      "role": "batter",
+      "runs": 5536,
+      "wickets": 25,
+      "matches": 200,
+      "trophies": 3
+    },
+    {
+      "name": "SL Malinga",
+      "team": "Mumbai Indians",
+      "role": "bowler",
+      "runs": 88,
+      "wickets": 170,
+      "matches": 122,
+      "trophies": 4
+    },
+    {
+      "name": "SM Curran",
+      "team": "Chennai Super Kings",
+      "role": "allrounder",
+      "runs": 997,
+      "wickets": 59,
+      "matches": 64,
+      "trophies": 1
+    },
+    {
+      "name": "SN Thakur",
+      "team": "Mumbai Indians",
+      "role": "bowler",
+      "runs": 349,
+      "wickets": 119,
+      "matches": 111,
+      "trophies": 2
+    },
+    {
+      "name": "SP Narine",
+      "team": "Kolkata Knight Riders",
+      "role": "allrounder",
+      "runs": 1820,
+      "wickets": 209,
+      "matches": 201,
+      "trophies": 3
+    },
+    {
+      "name": "SPD Smith",
+      "team": "Delhi Capitals",
+      "role": "batter",
+      "runs": 2495,
+      "wickets": 0,
+      "matches": 93,
+      "trophies": 0
+    },
+    {
+      "name": "SR Watson",
+      "team": "Chennai Super Kings",
+      "role": "allrounder",
+      "runs": 3880,
+      "wickets": 92,
+      "matches": 145,
+      "trophies": 1
+    },
+    {
+      "name": "SS Iyer",
+      "team": "Punjab Kings",
+      "role": "batter",
+      "runs": 4233,
+      "wickets": 0,
+      "matches": 144,
+      "trophies": 1
+    },
+    {
+      "name": "SV Samson",
+      "team": "Chennai Super Kings",
+      "role": "wicketkeeper",
+      "runs": 5181,
+      "wickets": 0,
+      "matches": 185,
+      "trophies": 0
+    },
+    {
+      "name": "Sandeep Sharma",
+      "team": "Rajasthan Royals",
+      "role": "bowler",
+      "runs": 60,
+      "wickets": 151,
+      "matches": 142,
+      "trophies": 0
+    },
+    {
+      "name": "Shakib Al Hasan",
+      "team": "Kolkata Knight Riders",
+      "role": "allrounder",
+      "runs": 795,
+      "wickets": 63,
+      "matches": 71,
+      "trophies": 2
+    },
+    {
+      "name": "Shubman Gill",
+      "team": "Gujarat Titans",
+      "role": "batter",
+      "runs": 4598,
+      "wickets": 0,
+      "matches": 130,
+      "trophies": 1
+    },
+    {
+      "name": "TA Boult",
+      "team": "Mumbai Indians",
+      "role": "bowler",
+      "runs": 93,
+      "wickets": 145,
+      "matches": 124,
+      "trophies": 2
+    },
+    {
+      "name": "UT Yadav",
+      "team": "Gujarat Titans",
+      "role": "bowler",
+      "runs": 208,
+      "wickets": 144,
+      "matches": 147,
+      "trophies": 1
+    },
+    {
+      "name": "V Kohli",
+      "team": "Royal Challengers Bengaluru",
+      "role": "batter",
+      "runs": 9346,
+      "wickets": 4,
+      "matches": 276,
+      "trophies": 2
+    },
+    {
+      "name": "V Sehwag",
+      "team": "Punjab Kings",
+      "role": "batter",
+      "runs": 2728,
+      "wickets": 6,
+      "matches": 104,
+      "trophies": 0
+    },
+    {
+      "name": "WP Saha",
+      "team": "Gujarat Titans",
+      "role": "wicketkeeper",
+      "runs": 2934,
+      "wickets": 0,
+      "matches": 143,
+      "trophies": 2
+    },
+    {
+      "name": "YBK Jaiswal",
+      "team": "Rajasthan Royals",
+      "role": "batter",
+      "runs": 2593,
+      "wickets": 0,
+      "matches": 82,
+      "trophies": 0
+    },
+    {
+      "name": "YK Pathan",
+      "team": "Sunrisers Hyderabad",
+      "role": "batter",
+      "runs": 3222,
+      "wickets": 42,
+      "matches": 161,
+      "trophies": 2
+    },
+    {
+      "name": "YS Chahal",
+      "team": "Punjab Kings",
+      "role": "bowler",
+      "runs": 37,
+      "wickets": 233,
+      "matches": 184,
+      "trophies": 1
+    },
+    {
+      "name": "Yuvraj Singh",
+      "team": "Mumbai Indians",
+      "role": "batter",
+      "runs": 2754,
+      "wickets": 36,
+      "matches": 129,
+      "trophies": 2
+    },
+    {
+      "name": "Z Khan",
+      "team": "Delhi Capitals",
+      "role": "bowler",
+      "runs": 117,
+      "wickets": 102,
+      "matches": 99,
+      "trophies": 0
+    }
+  ],
+  "calibration": {
+    "squadSize": 11,
+    "slots": {
+      "wicketkeeper": {
+        "min": 1,
+        "max": 1
+      },
+      "batter": {
+        "min": 3,
+        "max": 6
+      },
+      "allrounder": {
+        "min": 1,
+        "max": 4
+      },
+      "bowler": {
+        "min": 3,
+        "max": 6
+      }
+    },
+    "bestPossible": {
+      "runs": 52925,
+      "wickets": 1572,
+      "matches": 2485,
+      "trophies": 50
+    }
+  }
+}

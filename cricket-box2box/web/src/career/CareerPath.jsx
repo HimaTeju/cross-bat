@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import BrandMark from "../components/BrandMark";
+import ConfirmDialog from "../components/ConfirmDialog";
 import Confetti from "../components/Confetti";
 import { playWinFanfare } from "../sound";
 import { FRANCHISE_STYLE } from "../teamStyles";
-import { searchCareerPlayers, dailyPuzzle, randomPuzzle } from "./data";
+import { searchCareerPlayers, randomPuzzle } from "./data";
 
 const MAX_ATTEMPTS = 6;
 
@@ -61,10 +62,10 @@ function CrestChip({ block, revealed }) {
 }
 
 export default function CareerPath() {
-  const [mode, setMode] = useState("daily");
-  const [game, setGame] = useState(() => newGameState(dailyPuzzle().player));
+  const [game, setGame] = useState(() => newGameState(randomPuzzle()));
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [confirmNew, setConfirmNew] = useState(false);
   const [celebrating, setCelebrating] = useState(false);
   const inputRef = useRef(null);
 
@@ -91,16 +92,17 @@ export default function CareerPath() {
 
   const maxAttempts = attemptsFor(game.player);
 
-  function startDaily() {
-    setMode("daily");
-    setGame(newGameState(dailyPuzzle().player));
+  function startNewGame() {
+    setGame(newGameState(randomPuzzle(game.player.name)));
     setQuery("");
   }
 
-  function startPractice() {
-    setMode("practice");
-    setGame(newGameState(randomPuzzle(game.player.name)));
-    setQuery("");
+  function requestNewGame() {
+    if (game.status === "playing" && game.guesses.length > 0) {
+      setConfirmNew(true);
+    } else {
+      startNewGame();
+    }
   }
 
   function guess(name) {
@@ -137,15 +139,6 @@ export default function CareerPath() {
           </div>
         </div>
       </header>
-
-      <div className="career-modes">
-        <button className={mode === "daily" ? "btn-primary" : "btn-ghost"} onClick={startDaily}>
-          Daily
-        </button>
-        <button className={mode === "practice" ? "btn-primary" : "btn-ghost"} onClick={startPractice}>
-          Practice
-        </button>
-      </div>
 
       <div className="career-chain">
         {game.player.blocks.map((b, i) => (
@@ -219,17 +212,37 @@ export default function CareerPath() {
             )}
           </p>
           <div className="career-result-actions">
-            <button className="btn-primary" onClick={startPractice}>
+            <button className="btn-primary" onClick={startNewGame}>
               Play another
             </button>
           </div>
         </div>
       )}
 
+      <div className="controls">
+        <button className="btn-primary" onClick={requestNewGame}>
+          New Puzzle
+        </button>
+      </div>
+
       <p className="footnote">
         Team history built from every IPL match ever played (2008–2026). Only players with enough IPL
         history to be a fair puzzle are included.
       </p>
+
+      {confirmNew && (
+        <ConfirmDialog
+          title="Start a new puzzle?"
+          message="This gives up your current guesses on this player. Are you sure?"
+          confirmLabel="New Puzzle"
+          cancelLabel="Keep Playing"
+          onConfirm={() => {
+            setConfirmNew(false);
+            startNewGame();
+          }}
+          onCancel={() => setConfirmNew(false)}
+        />
+      )}
 
       {celebrating && <Confetti />}
     </div>
