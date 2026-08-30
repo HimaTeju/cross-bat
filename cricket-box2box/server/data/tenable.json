@@ -1,0 +1,739 @@
+{
+  "categories": [
+    {
+      "id": "most_runs",
+      "label": "Most Runs",
+      "description": "Career IPL runs, 2008–2026",
+      "unit": "runs",
+      "tieCaveat": false,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "Virat Kohli",
+          "id": "ba607b88",
+          "a": [
+            "V Kohli"
+          ],
+          "value": 9346
+        },
+        {
+          "rank": 2,
+          "name": "Rohit Sharma",
+          "id": "740742ef",
+          "a": [
+            "RG Sharma"
+          ],
+          "value": 7331
+        },
+        {
+          "rank": 3,
+          "name": "Shikhar Dhawan",
+          "id": "0a476045",
+          "a": [
+            "S Dhawan"
+          ],
+          "value": 6769
+        },
+        {
+          "rank": 4,
+          "name": "David Warner",
+          "id": "dcce6f09",
+          "a": [
+            "DA Warner"
+          ],
+          "value": 6567
+        },
+        {
+          "rank": 5,
+          "name": "KL Rahul",
+          "id": "b17e2f24",
+          "a": [],
+          "value": 5828
+        },
+        {
+          "rank": 6,
+          "name": "SK Raina",
+          "id": "1dc12ab9",
+          "a": [],
+          "value": 5536
+        },
+        {
+          "rank": 7,
+          "name": "MS Dhoni",
+          "id": "4a8a2e3b",
+          "a": [],
+          "value": 5439
+        },
+        {
+          "rank": 8,
+          "name": "Ajinkya Rahane",
+          "id": "29e95537",
+          "a": [
+            "AM Rahane"
+          ],
+          "value": 5367
+        },
+        {
+          "rank": 9,
+          "name": "AB de Villiers",
+          "id": "c4487b84",
+          "a": [],
+          "value": 5181
+        },
+        {
+          "rank": 10,
+          "name": "Sanju Samson",
+          "id": "a4cc73aa",
+          "a": [
+            "SV Samson"
+          ],
+          "value": 5181
+        }
+      ]
+    },
+    {
+      "id": "most_wickets",
+      "label": "Most Wickets",
+      "description": "Career IPL wickets, 2008–2026",
+      "unit": "wickets",
+      "tieCaveat": false,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "Yuzvendra Chahal",
+          "id": "57ee1fde",
+          "a": [
+            "YS Chahal"
+          ],
+          "value": 233
+        },
+        {
+          "rank": 2,
+          "name": "Bhuvneshwar Kumar",
+          "id": "2e81a32d",
+          "a": [
+            "B Kumar"
+          ],
+          "value": 226
+        },
+        {
+          "rank": 3,
+          "name": "Sunil Narine",
+          "id": "9d430b40",
+          "a": [
+            "SP Narine"
+          ],
+          "value": 209
+        },
+        {
+          "rank": 4,
+          "name": "PP Chawla",
+          "id": "98ae73b1",
+          "a": [],
+          "value": 192
+        },
+        {
+          "rank": 5,
+          "name": "Jasprit Bumrah",
+          "id": "462411b3",
+          "a": [
+            "JJ Bumrah"
+          ],
+          "value": 190
+        },
+        {
+          "rank": 6,
+          "name": "Ravichandran Ashwin",
+          "id": "495d42a5",
+          "a": [
+            "R Ashwin"
+          ],
+          "value": 187
+        },
+        {
+          "rank": 7,
+          "name": "Dwayne Bravo",
+          "id": "87e562a9",
+          "a": [
+            "DJ Bravo",
+            "DM Bravo"
+          ],
+          "value": 183
+        },
+        {
+          "rank": 8,
+          "name": "Sandeep Sharma",
+          "id": "9440ef41",
+          "a": [
+            "Shivam Sharma",
+            "Suyash Sharma"
+          ],
+          "value": 182
+        },
+        {
+          "rank": 9,
+          "name": "Ravindra Jadeja",
+          "id": "fe93fd9d",
+          "a": [
+            "RA Jadeja"
+          ],
+          "value": 180
+        },
+        {
+          "rank": 10,
+          "name": "Rashid Khan",
+          "id": "5f547c8b",
+          "a": [],
+          "value": 179
+        }
+      ]
+    },
+    {
+      "id": "most_matches",
+      "label": "Most Matches Played",
+      "description": "Career IPL appearances, 2008–2026",
+      "unit": "matches",
+      "tieCaveat": false,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "Virat Kohli",
+          "id": "ba607b88",
+          "a": [
+            "V Kohli"
+          ],
+          "value": 276
+        },
+        {
+          "rank": 2,
+          "name": "Rohit Sharma",
+          "id": "740742ef",
+          "a": [
+            "RG Sharma"
+          ],
+          "value": 275
+        },
+        {
+          "rank": 3,
+          "name": "Ravindra Jadeja",
+          "id": "fe93fd9d",
+          "a": [
+            "RA Jadeja"
+          ],
+          "value": 259
+        },
+        {
+          "rank": 4,
+          "name": "MS Dhoni",
+          "id": "4a8a2e3b",
+          "a": [],
+          "value": 241
+        },
+        {
+          "rank": 5,
+          "name": "KD Karthik",
+          "id": "c03f1114",
+          "a": [],
+          "value": 233
+        },
+        {
+          "rank": 6,
+          "name": "Shikhar Dhawan",
+          "id": "0a476045",
+          "a": [
+            "S Dhawan"
+          ],
+          "value": 221
+        },
+        {
+          "rank": 7,
+          "name": "Ravichandran Ashwin",
+          "id": "495d42a5",
+          "a": [
+            "R Ashwin"
+          ],
+          "value": 217
+        },
+        {
+          "rank": 8,
+          "name": "Bhuvneshwar Kumar",
+          "id": "2e81a32d",
+          "a": [
+            "B Kumar"
+          ],
+          "value": 206
+        },
+        {
+          "rank": 9,
+          "name": "Sunil Narine",
+          "id": "9d430b40",
+          "a": [
+            "SP Narine"
+          ],
+          "value": 201
+        },
+        {
+          "rank": 10,
+          "name": "SK Raina",
+          "id": "1dc12ab9",
+          "a": [],
+          "value": 200
+        }
+      ]
+    },
+    {
+      "id": "most_sixes",
+      "label": "Most Sixes",
+      "description": "Career IPL sixes, 2008–2026",
+      "unit": "sixes",
+      "tieCaveat": false,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "Chris Gayle",
+          "id": "db584dad",
+          "a": [
+            "CH Gayle"
+          ],
+          "value": 359
+        },
+        {
+          "rank": 2,
+          "name": "Rohit Sharma",
+          "id": "740742ef",
+          "a": [
+            "RG Sharma"
+          ],
+          "value": 324
+        },
+        {
+          "rank": 3,
+          "name": "Virat Kohli",
+          "id": "ba607b88",
+          "a": [
+            "V Kohli"
+          ],
+          "value": 317
+        },
+        {
+          "rank": 4,
+          "name": "MS Dhoni",
+          "id": "4a8a2e3b",
+          "a": [],
+          "value": 264
+        },
+        {
+          "rank": 5,
+          "name": "AB de Villiers",
+          "id": "c4487b84",
+          "a": [],
+          "value": 253
+        },
+        {
+          "rank": 6,
+          "name": "Sanju Samson",
+          "id": "a4cc73aa",
+          "a": [
+            "SV Samson"
+          ],
+          "value": 243
+        },
+        {
+          "rank": 7,
+          "name": "KL Rahul",
+          "id": "b17e2f24",
+          "a": [],
+          "value": 239
+        },
+        {
+          "rank": 8,
+          "name": "David Warner",
+          "id": "dcce6f09",
+          "a": [
+            "DA Warner"
+          ],
+          "value": 236
+        },
+        {
+          "rank": 9,
+          "name": "Kieron Pollard",
+          "id": "a757b0d8",
+          "a": [
+            "KA Pollard"
+          ],
+          "value": 224
+        },
+        {
+          "rank": 10,
+          "name": "Andre Russell",
+          "id": "bbd41817",
+          "a": [
+            "AD Russell"
+          ],
+          "value": 223
+        }
+      ]
+    },
+    {
+      "id": "most_catches",
+      "label": "Most Catches",
+      "description": "Career IPL catches (fielding + caught-and-bowled), 2008–2026",
+      "unit": "catches",
+      "tieCaveat": false,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "MS Dhoni",
+          "id": "4a8a2e3b",
+          "a": [],
+          "value": 158
+        },
+        {
+          "rank": 2,
+          "name": "KD Karthik",
+          "id": "c03f1114",
+          "a": [],
+          "value": 145
+        },
+        {
+          "rank": 3,
+          "name": "Virat Kohli",
+          "id": "ba607b88",
+          "a": [
+            "V Kohli"
+          ],
+          "value": 126
+        },
+        {
+          "rank": 4,
+          "name": "AB de Villiers",
+          "id": "c4487b84",
+          "a": [],
+          "value": 120
+        },
+        {
+          "rank": 5,
+          "name": "Ravindra Jadeja",
+          "id": "fe93fd9d",
+          "a": [
+            "RA Jadeja"
+          ],
+          "value": 111
+        },
+        {
+          "rank": 6,
+          "name": "SK Raina",
+          "id": "1dc12ab9",
+          "a": [],
+          "value": 109
+        },
+        {
+          "rank": 7,
+          "name": "Kieron Pollard",
+          "id": "a757b0d8",
+          "a": [
+            "KA Pollard"
+          ],
+          "value": 103
+        },
+        {
+          "rank": 8,
+          "name": "Rohit Sharma",
+          "id": "740742ef",
+          "a": [
+            "RG Sharma"
+          ],
+          "value": 102
+        },
+        {
+          "rank": 9,
+          "name": "Shikhar Dhawan",
+          "id": "0a476045",
+          "a": [
+            "S Dhawan"
+          ],
+          "value": 100
+        },
+        {
+          "rank": 10,
+          "name": "Wriddhiman Saha",
+          "id": "fe11caa6",
+          "a": [
+            "WP Saha"
+          ],
+          "value": 93
+        }
+      ]
+    },
+    {
+      "id": "most_trophies",
+      "label": "Most IPL Trophies",
+      "description": "IPL titles won as part of the winning squad, 2008–2026",
+      "unit": "titles",
+      "tieCaveat": false,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "Rohit Sharma",
+          "id": "740742ef",
+          "a": [
+            "RG Sharma"
+          ],
+          "value": 6
+        },
+        {
+          "rank": 2,
+          "name": "Ambati Rayudu",
+          "id": "70d205c9",
+          "a": [
+            "AT Rayudu"
+          ],
+          "value": 6
+        },
+        {
+          "rank": 3,
+          "name": "Jasprit Bumrah",
+          "id": "462411b3",
+          "a": [
+            "JJ Bumrah"
+          ],
+          "value": 5
+        },
+        {
+          "rank": 4,
+          "name": "Kieron Pollard",
+          "id": "a757b0d8",
+          "a": [
+            "KA Pollard"
+          ],
+          "value": 5
+        },
+        {
+          "rank": 5,
+          "name": "Hardik Pandya",
+          "id": "dbe50b21",
+          "a": [
+            "HH Pandya"
+          ],
+          "value": 5
+        },
+        {
+          "rank": 6,
+          "name": "Krunal Pandya",
+          "id": "5b8c830e",
+          "a": [
+            "KH Pandya"
+          ],
+          "value": 5
+        },
+        {
+          "rank": 7,
+          "name": "MS Dhoni",
+          "id": "4a8a2e3b",
+          "a": [],
+          "value": 4
+        },
+        {
+          "rank": 8,
+          "name": "Harbhajan Singh",
+          "id": "8b5b6769",
+          "a": [],
+          "value": 4
+        },
+        {
+          "rank": 9,
+          "name": "SL Malinga",
+          "id": "a12e1d51",
+          "a": [],
+          "value": 4
+        },
+        {
+          "rank": 10,
+          "name": "PP Ojha",
+          "id": "6c6591ab",
+          "a": [],
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "most_orange_caps",
+      "label": "Most Orange Caps Won",
+      "description": "Seasons finishing as the IPL's leading run-scorer",
+      "unit": "caps",
+      "tieCaveat": true,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "David Warner",
+          "id": "dcce6f09",
+          "a": [
+            "DA Warner"
+          ],
+          "value": 3
+        },
+        {
+          "rank": 2,
+          "name": "Chris Gayle",
+          "id": "db584dad",
+          "a": [
+            "CH Gayle"
+          ],
+          "value": 2
+        },
+        {
+          "rank": 3,
+          "name": "Virat Kohli",
+          "id": "ba607b88",
+          "a": [
+            "V Kohli"
+          ],
+          "value": 2
+        },
+        {
+          "rank": 4,
+          "name": "SE Marsh",
+          "id": "508a1ea7",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 5,
+          "name": "ML Hayden",
+          "id": "d8699ab7",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 6,
+          "name": "Sachin Tendulkar",
+          "id": "d2c2b2d5",
+          "a": [
+            "SR Tendulkar"
+          ],
+          "value": 1
+        },
+        {
+          "rank": 7,
+          "name": "MEK Hussey",
+          "id": "48fd7349",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 8,
+          "name": "Robin Uthappa",
+          "id": "1c17e270",
+          "a": [
+            "RV Uthappa"
+          ],
+          "value": 1
+        },
+        {
+          "rank": 9,
+          "name": "Kane Williamson",
+          "id": "d027ba9f",
+          "a": [
+            "KS Williamson"
+          ],
+          "value": 1
+        },
+        {
+          "rank": 10,
+          "name": "KL Rahul",
+          "id": "b17e2f24",
+          "a": [],
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "most_purple_caps",
+      "label": "Most Purple Caps Won",
+      "description": "Seasons finishing as the IPL's leading wicket-taker",
+      "unit": "caps",
+      "tieCaveat": true,
+      "answers": [
+        {
+          "rank": 1,
+          "name": "Dwayne Bravo",
+          "id": "87e562a9",
+          "a": [
+            "DJ Bravo",
+            "DM Bravo"
+          ],
+          "value": 2
+        },
+        {
+          "rank": 2,
+          "name": "Bhuvneshwar Kumar",
+          "id": "2e81a32d",
+          "a": [
+            "B Kumar"
+          ],
+          "value": 2
+        },
+        {
+          "rank": 3,
+          "name": "Kagiso Rabada",
+          "id": "e62dd25d",
+          "a": [
+            "K Rabada"
+          ],
+          "value": 2
+        },
+        {
+          "rank": 4,
+          "name": "Harshal Patel",
+          "id": "f986ca1a",
+          "a": [
+            "HV Patel"
+          ],
+          "value": 2
+        },
+        {
+          "rank": 5,
+          "name": "Sohail Tanvir",
+          "id": "64d43928",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 6,
+          "name": "RP Singh",
+          "id": "c3d1402f",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 7,
+          "name": "PP Ojha",
+          "id": "6c6591ab",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 8,
+          "name": "SL Malinga",
+          "id": "a12e1d51",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 9,
+          "name": "M Morkel",
+          "id": "5bb5a915",
+          "a": [],
+          "value": 1
+        },
+        {
+          "rank": 10,
+          "name": "MM Sharma",
+          "id": "759ac88f",
+          "a": [],
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

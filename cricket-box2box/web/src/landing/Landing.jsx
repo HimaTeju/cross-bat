@@ -25,6 +25,13 @@ const GAMES = [
     stats: "88 players · 4 categories · 2008–2026",
     needsDifficulty: false,
   },
+  {
+    to: "/tenable",
+    title: "Cricket Tenable",
+    blurb: "Pick a real IPL top-10 leaderboard and name as many as you can — three wrong guesses and your innings ends.",
+    stats: "8 categories · 3 wickets · 2008–2026",
+    needsDifficulty: false,
+  },
 ];
 
 const COMING_SOON = [];

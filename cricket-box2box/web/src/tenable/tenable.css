@@ -1,0 +1,297 @@
+.tenable-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.tenable-picking-prompt {
+  text-align: center;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+  margin: 0 0 1rem;
+}
+
+/* ---------- Category picker ---------- */
+
+.tenable-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.tenable-category-card {
+  text-align: left;
+  background: var(--parchment);
+  color: var(--ink);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 0 var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.tenable-category-card:hover { transform: translateY(-2px); box-shadow: 0 4px 0 var(--shadow); }
+.tenable-category-card:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 2px; }
+
+.tenable-category-card h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--pitch-deep);
+  text-transform: uppercase;
+}
+
+.tenable-category-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  line-height: 1.35;
+}
+
+.tenable-tie-caveat {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--crimson);
+}
+
+/* ---------- Category header + scoreboard ---------- */
+
+.tenable-category-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.tenable-category-label {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+}
+
+.tenable-category-value {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.8rem;
+  color: var(--gold-bright);
+}
+
+.tenable-scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--pitch-deep);
+  border: 1px solid var(--pitch-line);
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.tenable-progress {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.3rem;
+  color: var(--parchment);
+  font-variant-numeric: tabular-nums;
+}
+
+.tenable-wickets {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tenable-wickets-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+}
+
+.tenable-stumps {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.tenable-stump {
+  width: 0.3rem;
+  height: 1.05rem;
+  border-radius: 2px;
+  background: var(--gold-bright);
+  box-shadow: 0 0 6px rgba(227, 183, 86, 0.5);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tenable-stump.fallen {
+  background: var(--crimson);
+  box-shadow: none;
+  transform: rotate(70deg) translateY(2px);
+  opacity: 0.7;
+}
+
+/* ---------- Pyramid ---------- */
+
+.tenable-pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.6rem 1rem 1.4rem;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at 50% -8%, rgba(227, 183, 86, 0.22) 0%, transparent 55%),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 44px),
+    radial-gradient(ellipse at 50% 0%, #17402a 0%, var(--pitch-deep) 78%);
+  border: 2px solid var(--pitch-line);
+  position: relative;
+}
+
+.tenable-pyramid::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: radial-gradient(ellipse at 50% 0%, var(--gold-bright), transparent 80%);
+  opacity: 0.8;
+}
+
+.tenable-slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.1rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(243, 236, 216, 0.06);
+  border: 1px dashed rgba(243, 236, 216, 0.3);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.3s ease;
+}
+
+.tenable-slot-rank {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.05rem;
+  color: var(--gold);
+  width: 1.1rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tenable-slot-name {
+  flex: 1;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-align: center;
+  color: rgba(243, 236, 216, 0.45);
+}
+
+.tenable-slot-value {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--parchment-dim);
+  flex-shrink: 0;
+}
+
+.tenable-slot.filled {
+  background: var(--parchment);
+  border: 1px solid var(--parchment-dim);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  animation: tenable-flip-in 0.4s ease;
+}
+.tenable-slot.filled .tenable-slot-name { color: var(--ink); }
+.tenable-slot.filled .tenable-slot-rank { color: var(--crimson); }
+.tenable-slot.filled .tenable-slot-value { color: var(--pitch-deep); opacity: 0.7; }
+
+.tenable-slot.missed {
+  background: rgba(169, 50, 38, 0.18);
+  border: 1px solid rgba(169, 50, 38, 0.5);
+}
+.tenable-slot.missed .tenable-slot-name { color: var(--parchment); opacity: 0.85; }
+.tenable-slot.missed .tenable-slot-value { color: var(--parchment-dim); }
+
+@keyframes tenable-flip-in {
+  from { transform: rotateX(-90deg); opacity: 0; }
+  to { transform: rotateX(0deg); opacity: 1; }
+}
+
+/* ---------- Search ---------- */
+
+.tenable-search-box {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto 0.75rem;
+}
+
+.tenable-search-box input {
+  width: 100%;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.85rem;
+  border: 2px solid var(--pitch-line);
+  border-radius: 6px;
+  background: var(--pitch-deep);
+  color: var(--parchment);
+}
+.tenable-search-box input:focus { outline: none; border-color: var(--gold); }
+
+.tenable-search-box.shake input { animation: shake 0.4s ease; border-color: var(--crimson); }
+
+.tenable-search-box .suggestions {
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+
+.tenable-search-empty {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--parchment-dim);
+  text-align: center;
+}
+
+/* ---------- Result ---------- */
+
+.tenable-result {
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+.tenable-result h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 2rem;
+  color: var(--gold-bright);
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.tenable-result p {
+  font-size: 0.9rem;
+  color: var(--parchment-dim);
+  margin: 0 0 1rem;
+}
+
+@media (max-width: 560px) {
+  .tenable-slot { padding: 0.25rem 0.6rem; min-height: 1.9rem; }
+  .tenable-slot-name { font-size: 0.72rem; }
+  .tenable-scoreboard { flex-direction: column; gap: 0.5rem; align-items: stretch; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tenable-slot.filled, .tenable-stump { animation: none; transition: none; }
+}

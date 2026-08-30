@@ -14,3 +14,4 @@ cricket-box2box/cricsheet/
 # Reference-only Box2Box football schema files (unrelated to the cricket app)
 /gamedata.json
 /player.json
+*.pyc
