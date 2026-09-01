@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import BrandMark from "../components/BrandMark";
 import ConfirmDialog from "../components/ConfirmDialog";
@@ -20,6 +20,7 @@ export default function Tenable() {
   const [celebrating, setCelebrating] = useState(false);
   const [outcome, setOutcome] = useState(null); // "win" | "allout"
   const [howToPlay, setHowToPlay] = useState(false);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     document.title = "Cricket Tenable — Cross Bat";
@@ -73,6 +74,7 @@ export default function Tenable() {
       setTimeout(() => setShake(false), 420);
     }
     setQuery("");
+    inputRef.current?.focus();
   }
 
   const foundCount = Object.keys(found).length;
@@ -174,12 +176,13 @@ export default function Tenable() {
           {phase === "playing" && (
             <div className={`tenable-search-box${shake ? " shake" : ""}`}>
               <input
+                ref={inputRef}
                 type="text"
                 placeholder="Guess a player…"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter" && suggestions.length === 1) guess(suggestions[0]);
+                  if (e.key === "Enter" && suggestions.length > 0) guess(suggestions[0]);
                 }}
               />
               {suggestions.length > 0 && (

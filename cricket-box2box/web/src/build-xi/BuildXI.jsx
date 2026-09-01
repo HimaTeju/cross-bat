@@ -218,6 +218,9 @@ export default function BuildXI() {
                   placeholder="Search a player to add…"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && suggestions.length > 0) pickSuggestion(suggestions[0]);
+                  }}
                 />
                 {suggestions.length > 0 && (
                   <ul className="suggestions">

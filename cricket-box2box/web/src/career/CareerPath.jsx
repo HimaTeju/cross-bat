@@ -179,6 +179,9 @@ export default function CareerPath() {
             spellCheck={false}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && suggestions.length > 0) guess(suggestions[0]);
+            }}
           />
           <p className="career-attempts">
             {game.guesses.length} / {maxAttempts} guesses used
