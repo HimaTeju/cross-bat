@@ -14,7 +14,6 @@ export default function SearchOverlay({ clue, usedPlayers, onGuess, onClose }) {
 
   useEffect(() => {
     const q = query.trim();
-    setFeedback("");
     if (q.length < 2) {
       setSuggestions([]);
       return;
@@ -24,6 +23,11 @@ export default function SearchOverlay({ clue, usedPlayers, onGuess, onClose }) {
       if (id === requestId.current) setSuggestions(results);
     });
   }, [query, usedPlayers]);
+
+  function handleQueryChange(value) {
+    setFeedback("");
+    setQuery(value);
+  }
 
   async function pick(name) {
     const result = await onGuess(name);
@@ -52,9 +56,10 @@ export default function SearchOverlay({ clue, usedPlayers, onGuess, onClose }) {
           autoComplete="off"
           spellCheck={false}
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => handleQueryChange(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Escape") onClose();
+            if (e.key === "Enter" && suggestions.length > 0) pick(suggestions[0]);
           }}
         />
         <p className="search-feedback">{feedback}</p>
